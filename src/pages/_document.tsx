@@ -28,8 +28,14 @@ export default function Document() {
 					property="og:description"
 					content="Мастерская художественной ковки 'Кованый дракон' предлагает эксклюзивные изделия из металла. Закажите уникальные кованые ворота, заборы, лестницы и декоративные элементы."
 				/>
-				<meta property="og:image" content="/og-image.jpg" />
-				<meta property="vk:image" content="/og-image.jpg" />
+				<meta
+					property="og:image"
+					content="https://forged-dragon.vercel.app/og-image.jpg"
+				/>
+				<meta
+					property="vk:image"
+					content="https://forged-dragon.vercel.app/og-image.jpg"
+				/>
 				<meta property="og:image:type" content="image/jpg" />
 				<meta property="og:url" content="https://kovany-dragon.com" />
 				<meta property="og:type" content="website" />
