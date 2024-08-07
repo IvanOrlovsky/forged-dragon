@@ -6,7 +6,6 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
-				<title>Кованый дракон - Мастерская художественной ковки</title>
 				<meta
 					name="description"
 					content="Мастерская художественной ковки 'Кованый дракон' предлагает эксклюзивные изделия из металла. Закажите уникальные кованые ворота, заборы, лестницы и декоративные элементы."
@@ -16,10 +15,6 @@ export default function Document() {
 					content="художественная ковка, кованые изделия, кованые ворота, кованые заборы, кованые лестницы, металлоконструкции, ковка на заказ, откатные ворота, авто навесы"
 				/>
 				<meta name="author" content="Кованый дракон" />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1.0"
-				/>
 
 				{/* Open Graph */}
 				<meta

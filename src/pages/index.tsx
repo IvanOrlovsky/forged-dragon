@@ -1,17 +1,14 @@
 "use client";
 
-import Header from "@/components/Header";
-
+import NavBar from "@/components/NavBar";
+import { useState } from "react";
 export default function Home() {
-	let a = 1;
-	let b = a + 1;
-	a = b - a;
-	console.log(a);
+	const [theme, setTheme] = useState<"light" | "dark">("light");
 
 	return (
-		<>
-			<Header />
+		<div className={`${theme === "dark" && "dark"}`}>
+			<NavBar theme={theme} setTheme={setTheme} />
 			<main></main>
-		</>
+		</div>
 	);
 }
