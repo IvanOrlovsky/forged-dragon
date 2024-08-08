@@ -18,7 +18,7 @@ export default function Header({
 	return (
 		<nav
 			className={cn(
-				" bg-white  dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 dark:text-white text-xl shadow-xl",
+				" bg-white bg-opacity-30 dark:bg-opacity-30 backdrop-blur-xl  dark:bg-gray-900 fixed w-full z-50 top-0 start-0 dark:text-white text-xl shadow-xl",
 				className
 			)}
 		>
@@ -33,17 +33,25 @@ export default function Header({
 						Наши работы
 					</a>
 					<a
+						href="#reviews"
+						className={cn("min-h-full hover:text-red-400", {
+							"": active === "reviews",
+						})}
+					>
+						Отзывы
+					</a>
+					<a
 						href="#about"
 						className={cn("min-h-full hover:text-red-400", {
-							"": active === "our-works",
+							"": active === "about",
 						})}
 					>
 						О компании
 					</a>
 					<a
-						href="#contact"
+						href="#contacts"
 						className={cn("min-h-full hover:text-red-400", {
-							"": active === "our-works",
+							"": active === "contacts",
 						})}
 					>
 						Контакты
