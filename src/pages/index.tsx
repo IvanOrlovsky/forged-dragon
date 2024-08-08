@@ -8,7 +8,7 @@ export default function Home() {
 	return (
 		<div className={`${theme === "dark" && "dark"}`}>
 			<NavBar theme={theme} setTheme={setTheme} />
-			<main></main>
+			<main className="bg-primary-light dark:bg-primary-dark w-screen h-screen"></main>
 		</div>
 	);
 }

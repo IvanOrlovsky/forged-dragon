@@ -18,19 +18,37 @@ export default function Header({
 	return (
 		<nav
 			className={cn(
-				"bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 dark:text-white",
+				" bg-white  dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 dark:text-white text-xl shadow-xl",
 				className
 			)}
 		>
-			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 font-semibold">
-				<a
-					href="#your-works"
-					className={cn("min-h-full hover:text-red-400", {
-						"": active === "our-works",
-					})}
-				>
-					Наши работы
-				</a>
+			<div className="max-w-screen-xl flex flex-wrap items-center justify-between  mx-auto p-5 font-semibold">
+				<div className="grow flex flex-row justify-around">
+					<a
+						href="#your-works"
+						className={cn("min-h-full hover:text-red-400", {
+							"": active === "our-works",
+						})}
+					>
+						Наши работы
+					</a>
+					<a
+						href="#about"
+						className={cn("min-h-full hover:text-red-400", {
+							"": active === "our-works",
+						})}
+					>
+						О компании
+					</a>
+					<a
+						href="#contact"
+						className={cn("min-h-full hover:text-red-400", {
+							"": active === "our-works",
+						})}
+					>
+						Контакты
+					</a>
+				</div>
 				<button
 					type="button"
 					onClick={() => {
