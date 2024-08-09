@@ -37,11 +37,9 @@ export default function Home({
 	imagesByTab,
 }: InferGetStaticPropsType<GetStaticProps<ContentType>>) {
 	return (
-		<main className={` relative h-screen w-screen`}>
-			<div className="absolute h-screen w-screen"></div>
+		<main className={`relative h-screen w-screen`}>
 			<NavBar />
 			<MainHead />
-
 			<div id="our-works" className="my-12">
 				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			</div>

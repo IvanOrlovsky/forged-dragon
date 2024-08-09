@@ -22,12 +22,11 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 	}, [activeTab]);
 
 	return (
-		<div className=" w-screen">
+		<div className="w-screen">
 			<ul className="flex flex-wrap justify-center gap-3 text-sm font-medium text-center text-gray-500 dark:text-gray-400">
 				{tabs.map((tab) => (
 					<li key={tab} className="me-2">
-						<a
-							id={tab}
+						<button
 							onClick={() => setActiveTab(tab)}
 							className={`inline-block px-4 py-3 rounded-lg ${
 								activeTab === tab
@@ -35,10 +34,8 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 									: "hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white hover:cursor-pointer"
 							}`}
 						>
-							<label className="hover:cursor-pointer">
-								{tab}
-							</label>
-						</a>
+							{tab}
+						</button>
 					</li>
 				))}
 			</ul>
