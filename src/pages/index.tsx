@@ -8,6 +8,7 @@ import fs from "fs";
 import { ContentType } from "@/types/ContentType";
 import MainHead from "@/components/MainHead";
 import Reviews from "@/components/Reviews";
+import Gallery1 from "@/components/Gallery1";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const categoryDir = path.join(process.cwd(), "public", "category");
@@ -44,7 +45,7 @@ export default function Home({
 				<h2 className="pl-8 dark:text-white text-black text-6xl font-bold mb-2">
 					Наши работы
 				</h2>
-				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
+				<Gallery1 tabs={tabs} imagesByTab={imagesByTab} />
 			</div>
 			<div id="reviews">
 				<h2 className="pl-8 dark:text-white text-black text-6xl font-bold mb-2">
