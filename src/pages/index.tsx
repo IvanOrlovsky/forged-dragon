@@ -9,6 +9,7 @@ import fs from "fs";
 import { ContentType } from "@/types/ContentType";
 import MainHead from "@/components/MainHead";
 import Reviews from "@/components/Reviews";
+import { motion } from "framer-motion";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const categoryDir = path.join(process.cwd(), "public", "category");
@@ -44,17 +45,15 @@ export default function Home({
 		<main
 			className={`${
 				theme === "dark" && "dark"
-			} relative h-screen w-screen bg-gray-200`}
+			} relative h-screen w-screen`}
 		>
 			<NavBar theme={theme} setTheme={setTheme} />
 			<MainHead />
-			<div id="our-works">
-				<Gallery tabs={tabs} imagesByTab={imagesByTab}></Gallery>
+
+			<div id="our-works" className="my-12">
+				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			</div>
-			<div
-				id="reviews"
-				className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
-			>
+			<div id="reviews">
 				<Reviews />
 			</div>
 		</main>

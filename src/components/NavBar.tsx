@@ -18,7 +18,7 @@ export default function Header({
 	return (
 		<nav
 			className={cn(
-				" bg-white bg-opacity-30 dark:bg-opacity-30 backdrop-blur-xl  dark:bg-gray-900 fixed w-full z-50 top-0 start-0 dark:text-white text-xl shadow-xl",
+				" bg-primary-light bg-opacity-30 dark:bg-opacity-30 backdrop-blur-xl   dark:bg-primary-dark fixed w-full z-50 top-0 start-0 dark:text-white text-xl shadow-xl",
 				className
 			)}
 		>

@@ -30,10 +30,12 @@ export default function Reviews() {
 	];
 
 	return (
-		<InfiniteMovingCards
-			items={testimonials}
-			direction="right"
-			speed="slow"
-		/>
+		<div className="bg-primary-light  dark:bg-primary-dark h-[40rem] rounded-md flex flex-col antialiased dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+			<InfiniteMovingCards
+				items={testimonials}
+				direction="right"
+				speed="slow"
+			/>
+		</div>
 	);
 }

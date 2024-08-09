@@ -23,7 +23,7 @@ const config: Config = {
 			colors: {
 				"primary-dark": "#291720",
 				"secondary-dark": "#A30000",
-				"primary-light": "f4f3ee",
+				"primary-light": "#f4f3ee",
 				//"secondary-light":
 			},
 			fontFamily: {
