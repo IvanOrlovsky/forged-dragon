@@ -47,7 +47,7 @@ export default function Header({ className }: { className?: string }) {
 
 	return (
 		<nav
-			className={`bg-opacity-30 dark:bg-opacity-30 backdrop-blur-xl  fixed w-full z-50 top-0 start-0 dark:text-white text-xl shadow-xl ${className}`}
+			className={`dark:bg-white bg-black bg-opacity-40 dark:bg-opacity-40 backdrop-blur-sm  fixed w-full z-50 top-0 start-0 text-white text-xl shadow-xl ${className}`}
 		>
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-5 font-semibold">
 				<div className="grow flex flex-row justify-around">

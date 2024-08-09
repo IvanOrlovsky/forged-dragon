@@ -41,9 +41,15 @@ export default function Home({
 			<NavBar />
 			<MainHead />
 			<div id="our-works" className="my-12">
+				<h2 className="pl-8 dark:text-white text-black text-6xl font-bold mb-2">
+					Наши работы
+				</h2>
 				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			</div>
 			<div id="reviews">
+				<h2 className="pl-8 dark:text-white text-black text-6xl font-bold mb-2">
+					Отзывы
+				</h2>
 				<Reviews />
 			</div>
 		</main>
