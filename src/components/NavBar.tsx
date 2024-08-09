@@ -25,7 +25,7 @@ export default function Header({
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between  mx-auto p-5 font-semibold">
 				<div className="grow flex flex-row justify-around">
 					<a
-						href="#your-works"
+						href="#our-works"
 						className={cn("min-h-full hover:text-red-400", {
 							"": active === "our-works",
 						})}
