@@ -30,6 +30,7 @@ export const getStaticProps: GetStaticProps<ContentType> = async () => {
 			tabs: folders,
 			imagesByTab,
 		},
+		revalidate: 3600,
 	};
 };
 
