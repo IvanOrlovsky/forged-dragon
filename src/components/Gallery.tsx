@@ -22,7 +22,7 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 	}, [activeTab]);
 
 	return (
-		<div className="bg-primary-light dark:bg-primary-dark w-screen">
+		<div className=" w-screen">
 			<ul className="flex flex-wrap justify-center gap-3 text-sm font-medium text-center text-gray-500 dark:text-gray-400">
 				{tabs.map((tab) => (
 					<li key={tab} className="me-2">

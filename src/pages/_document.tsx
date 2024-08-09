@@ -37,7 +37,7 @@ export default function Document() {
 				<meta property="og:url" content="https://kovany-dragon.com" />
 				<meta property="og:type" content="website" />
 			</Head>
-			<body>
+			<body className="bg-primary-light  dark:bg-primary-dark">
 				<Main />
 				<NextScript />
 			</body>
