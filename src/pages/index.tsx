@@ -9,6 +9,7 @@ import { ContentType } from "@/types/ContentType";
 import MainHead from "@/components/MainHead";
 import Reviews from "@/components/Reviews";
 import Gallery1 from "@/components/Gallery1";
+import Contacts from "@/components/Contacts";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const categoryDir = path.join(process.cwd(), "public", "category");
@@ -42,17 +43,23 @@ export default function Home({
 			<NavBar />
 			<MainHead />
 
-			<div id="our-works" className="my-12">
+			<div id="our-works" className="mt-24">
 				<h2 className="text-accent-light dark:text-accent-dark pl-8 text-6xl font-bold mb-8">
 					Наши работы
 				</h2>
 				<Gallery1 tabs={tabs} imagesByTab={imagesByTab} />
 			</div>
-			<div id="reviews">
+			<div id="reviews" className="mt-24">
 				<h2 className="pl-8 text-accent-light dark:text-accent-dark text-6xl font-bold mb-8">
 					Отзывы
 				</h2>
 				<Reviews />
+			</div>
+			<div id="contacts" className="mt-24">
+				<h2 className="pl-8 text-accent-light dark:text-accent-dark text-6xl font-bold mb-8">
+					Как с нами связаться?
+				</h2>
+				<Contacts />
 			</div>
 		</main>
 	);

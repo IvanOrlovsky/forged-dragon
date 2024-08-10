@@ -13,7 +13,7 @@ export default function MainHead() {
 			<ImagesSlider
 				images={images}
 				direction="left"
-				className="absolute inset-0 h-5/6"
+				className="absolute inset-0 h-5/6 mt-16"
 			/>
 			{/* Content on top of the slider */}
 			<div className=" relative z-40 flex flex-col justify-center h-5/6 pl-8">
