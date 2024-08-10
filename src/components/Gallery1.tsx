@@ -7,7 +7,7 @@ export default function Gallery1({ tabs, imagesByTab }: ContentType) {
 	const [activeTab, setActiveTab] = useState(tabs[0]);
 
 	return (
-		<div className="w-screen flex flex-col ">
+		<div className="w-screen flex flex-col mt-2">
 			<ul className="bg-white p-3 rounded-lg w-fit self-center flex flex-wrap justify-center gap-3 text-xl font-medium text-center text-text-light ">
 				{tabs.map((tab) => (
 					<li key={tab}>
