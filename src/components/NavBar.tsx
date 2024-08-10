@@ -90,7 +90,7 @@ export default function Header({ className }: { className?: string }) {
 			</div>
 			{/* Мобильное меню */}
 			{menuOpen && (
-				<div className="md:hidden flex flex-col items-center space-y-4 bg-black dark:bg-white bg-opacity-90 dark:bg-opacity-90 p-5">
+				<div className="md:hidden flex flex-col items-center space-y-4 dark:bg-white bg-black bg-opacity-40 dark:bg-opacity-40 backdrop-blur-sm p-5">
 					<a href="#our-works" className="hover:text-red-400">
 						Наши работы
 					</a>
