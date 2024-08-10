@@ -41,14 +41,15 @@ export default function Home({
 		<main className={`relative h-screen w-screen`}>
 			<NavBar />
 			<MainHead />
+
 			<div id="our-works" className="my-12">
-				<h2 className="pl-8 dark:text-white text-black text-6xl font-bold mb-2">
+				<h2 className="text-accent-light dark:text-accent-dark pl-8 text-6xl font-bold mb-8">
 					Наши работы
 				</h2>
 				<Gallery1 tabs={tabs} imagesByTab={imagesByTab} />
 			</div>
 			<div id="reviews">
-				<h2 className="pl-8 dark:text-white text-black text-6xl font-bold mb-2">
+				<h2 className="pl-8 text-accent-light dark:text-accent-dark text-6xl font-bold mb-8">
 					Отзывы
 				</h2>
 				<Reviews />

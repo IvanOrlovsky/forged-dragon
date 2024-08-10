@@ -7,15 +7,15 @@ export default function Gallery1({ tabs, imagesByTab }: ContentType) {
 	const [activeTab, setActiveTab] = useState(tabs[0]);
 
 	return (
-		<div className="w-screen">
-			<ul className="flex flex-wrap justify-center gap-3 text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+		<div className="w-screen flex flex-col">
+			<ul className="bg-white p-3 rounded-lg w-fit self-center flex flex-wrap justify-center gap-3 text-xl font-medium text-center text-text-light ">
 				{tabs.map((tab) => (
-					<li key={tab} className="me-2">
+					<li key={tab}>
 						<button
 							onClick={() => setActiveTab(tab)}
 							className={`inline-block px-4 py-3 rounded-lg ${
 								activeTab === tab
-									? "text-white bg-blue-600"
+									? " dark:text-text-light bg-accent-light text-text-dark dark:bg-accent-dark"
 									: "hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white hover:cursor-pointer"
 							}`}
 						>
@@ -24,7 +24,7 @@ export default function Gallery1({ tabs, imagesByTab }: ContentType) {
 					</li>
 				))}
 			</ul>
-			<div className="mt-3">
+			<div className="mt-6">
 				<ImageGallery
 					items={
 						imagesByTab
