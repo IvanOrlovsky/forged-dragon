@@ -1,9 +1,11 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LightModeIcon from "../../public/icons/LightModeIcon.svg";
 import DarkModeIcon from "../../public/icons/DarkModeIcon.svg";
 
 export default function Header({ className }: { className?: string }) {
+	const [menuOpen, setMenuOpen] = useState(false);
+
 	// Функция для установки темы
 	const setTheme = (theme: "light" | "dark") => {
 		if (typeof document !== "undefined") {
@@ -45,35 +47,31 @@ export default function Header({ className }: { className?: string }) {
 		}
 	};
 
+	const toggleMenu = () => {
+		setMenuOpen(!menuOpen);
+	};
+
 	return (
 		<nav
-			className={`dark:bg-white bg-black bg-opacity-40 dark:bg-opacity-40 backdrop-blur-sm  fixed w-full z-50 top-0 start-0 text-white text-xl shadow-xl ${className}`}
+			className={`dark:bg-white bg-black bg-opacity-40 dark:bg-opacity-40 backdrop-blur-sm fixed w-full z-50 top-0 start-0 text-white text-xl shadow-xl ${className}`}
 		>
-			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-5 font-semibold">
-				<div className="grow flex flex-row justify-around">
-					<a
-						href="#our-works"
-						className="min-h-full hover:text-red-400"
-					>
+			<div className="max-w-screen-xl flex items-center justify-between mx-auto p-5 font-semibold">
+				<div className="text-2xl">Кованый дракон</div>
+				<div className="hidden md:flex flex-row space-x-8">
+					<a href="#our-works" className="hover:text-red-400">
 						Наши работы
 					</a>
-					<a
-						href="#reviews"
-						className="min-h-full hover:text-red-400"
-					>
+					<a href="#reviews" className="hover:text-red-400">
 						Отзывы
 					</a>
-					<a href="#about" className="min-h-full hover:text-red-400">
+					<a href="#about" className="hover:text-red-400">
 						О компании
 					</a>
-					<a
-						href="#contacts"
-						className="min-h-full hover:text-red-400"
-					>
+					<a href="#contacts" className="hover:text-red-400">
 						Контакты
 					</a>
 				</div>
-				<button type="button" onClick={toggleTheme}>
+				<button type="button" onClick={toggleTheme} className="ml-4">
 					{typeof document !== "undefined" &&
 					document.documentElement.classList.contains("dark") ? (
 						<LightModeIcon />
@@ -81,7 +79,32 @@ export default function Header({ className }: { className?: string }) {
 						<DarkModeIcon />
 					)}
 				</button>
+				{/* Бургер-меню для мобильных устройств */}
+				<button
+					type="button"
+					className="block md:hidden ml-4"
+					onClick={toggleMenu}
+				>
+					☰
+				</button>
 			</div>
+			{/* Мобильное меню */}
+			{menuOpen && (
+				<div className="md:hidden flex flex-col items-center space-y-4 bg-black dark:bg-white bg-opacity-90 dark:bg-opacity-90 p-5">
+					<a href="#our-works" className="hover:text-red-400">
+						Наши работы
+					</a>
+					<a href="#reviews" className="hover:text-red-400">
+						Отзывы
+					</a>
+					<a href="#about" className="hover:text-red-400">
+						О компании
+					</a>
+					<a href="#contacts" className="hover:text-red-400">
+						Контакты
+					</a>
+				</div>
+			)}
 		</nav>
 	);
 }
