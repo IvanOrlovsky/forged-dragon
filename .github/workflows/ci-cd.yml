@@ -27,4 +27,4 @@ jobs:
               run: pnpm build
 
             - name: Start Next.js
-              run: pm2 start npm --name "nextjs-app" -- start
+              run: /home/github-runner/.nvm/versions/node/v20.16.0/bin/pm2 start npm --name "nextjs-app" -- start
