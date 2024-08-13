@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
     push:
         branches:
-            - main # запуск при пуше в ветку main (измените на свою ветку, если необходимо)
+            - main
     pull_request:
         branches:
             - main
@@ -19,13 +19,20 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: "20.16.0"
+                  node-version: "18"
 
             - name: Install dependencies
               run: npm install
 
+            - name: Run tests
+              run: npm run test
+
             - name: Build the application
               run: npm run build
+
+            - name: Add server to known_hosts
+              run: |
+                  ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
 
             - name: Deploy to server
               if: github.ref == 'refs/heads/main'
@@ -37,4 +44,8 @@ jobs:
                   echo "${SSH_PRIVATE_KEY}" > key.pem
                   chmod 600 key.pem
                   scp -i key.pem -r ./out/* $SERVER_USER@$SERVER_HOST:/path/to/deploy/
-                  ssh -i key.pem $SERVER_USER@$SERVER_HOST "cd /path/to/deploy && npm install && pm2 restart all"
+                  ssh -i key.pem $SERVER_USER@$SERVER_HOST "
+                    cd /path/to/deploy &&
+                    npm install &&
+                    pm2 restart all
+                  "
