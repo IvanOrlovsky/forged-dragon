@@ -30,6 +30,11 @@ jobs:
               run: ls -la
             - name: Print working directory
               run: pwd
+            - name: Upload build artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: nextjs-build
+                  path: nextjs-build.tar.gz
 
     deploy:
         environment:
@@ -48,6 +53,11 @@ jobs:
             - name: List files before deploying
               run: ls -la
 
+            - name: Download build artifact
+              uses: actions/download-artifact@v3
+              with:
+                  name: nextjs-build
+
             - name: Deploy to VPS
               run: |
                   echo "Copying files to the server..."
@@ -55,9 +65,9 @@ jobs:
 
                   echo "Connecting to the server and extracting files..."
                   ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-                    set -x  # Enable debug mode to show commands and their arguments
-                    cd /root/forged-dragon || { echo "Failed to change directory"; exit 1; }
-                    tar -xzf nextjs-build.tar.gz || { echo "Failed to extract tarball"; exit 1; }
-                    pnpm install --production || { echo "Failed to install dependencies"; exit 1; }
-                    pnpm start || { echo "Failed to start the application"; exit 1; }
+                    set -x  # Включение режима отладки для отображения команд и их аргументов
+                    cd /root/forged-dragon || { echo "Не удалось перейти в директорию"; exit 1; }
+                    tar -xzf nextjs-build.tar.gz || { echo "Не удалось распаковать архив"; exit 1; }
+                    pnpm install --production || { echo "Не удалось установить зависимости"; exit 1; }
+                    pnpm start || { echo "Не удалось запустить приложение"; exit 1; }
                   EOF
