@@ -1,61 +1,84 @@
-name: CI/CD Pipeline
+name: Deploy Next.js site to VPS
 
 on:
+    # Runs on pushes targeting the default branch
     push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
+        branches: [$default-branch]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+    contents: read
 
 jobs:
+    # Build job
     build:
         runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Detect package manager
+              id: detect-package-manager
+              run: |
+                  if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+                    echo "manager=yarn" >> $GITHUB_OUTPUT
+                    echo "command=install" >> $GITHUB_OUTPUT
+                    echo "runner=yarn" >> $GITHUB_OUTPUT
+                    exit 0
+                  elif [ -f "${{ github.workspace }}/package.json" ]; then
+                    echo "manager=npm" >> $GITHUB_OUTPUT
+                    echo "command=ci" >> $GITHUB_OUTPUT
+                    echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+                    exit 0
+                  else
+                    echo "Unable to determine package manager"
+                    exit 1
+                  fi
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: ${{ steps.detect-package-manager.outputs.manager }}
+            - name: Restore cache
+              uses: actions/cache@v4
+              with:
+                  path: |
+                      .next/cache
+                  # Generate a new cache whenever packages or source files change.
+                  key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+                  # If source files changed but packages didn't, rebuild from a prior cache.
+                  restore-keys: |
+                      ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            - name: Install dependencies
+              run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+            - name: Build with Next.js
+              run: ${{ steps.detect-package-manager.outputs.runner }} next build
+            - name: Archive files
+              run: tar -czf nextjs-build.tar.gz .next public package.json
 
+    # Deployment job
+    deploy:
+        environment:
+            name: vps
+        runs-on: ubuntu-latest
+        needs: build
         steps:
             - name: Checkout code
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
-            - name: Set up Node.js
-              uses: actions/setup-node@v3
+            - name: Setup SSH
+              uses: webfactory/ssh-agent@v0.5.3
               with:
-                  node-version: "18"
+                  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-            - name: Install dependencies
-              run: npm install
-
-            - name: Build the application
-              run: npm run build
-
-            - name: Create .ssh directory
+            - name: Deploy to VPS
               run: |
-                  mkdir -p ~/.ssh
-                  chmod 700 ~/.ssh
-
-            - name: Debug SERVER_HOST
-              run: echo "SERVER_HOST is set to $SERVER_HOST"
-
-            - name: Add server to known_hosts
-              run: |
-                  echo "$SERVER_HOST"
-                  ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
-                  cat ~/.ssh/known_hosts
-
-            - name: Deploy to server
-              if: github.ref == 'refs/heads/main'
-              env:
-                  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-                  SERVER_HOST: ${{ secrets.SERVER_HOST }}
-                  SERVER_USER: ${{ secrets.SERVER_USER }}
-              run: |
-                  echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
-                  chmod 600 key.pem
-                  # Test SSH connection
-                  ssh -i key.pem -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=10 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo SSH connection successful"
-                  # Deploy files
-                  scp -i key.pem -o StrictHostKeyChecking=no -r ./out/* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/path/to/deploy/
-                  ssh -i key.pem -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
-                    cd /path/to/deploy &&
-                    npm install &&
-                    pm2 restart all
-                  "
+                  scp -o StrictHostKeyChecking=no nextjs-build.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/path/to/your/project/
+                  ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+                    cd /path/to/your/project
+                    tar -xzf nextjs-build.tar.gz
+                    npm install --production
+                    npm run start
+                  EOF
