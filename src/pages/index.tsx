@@ -38,10 +38,9 @@ export default function Home({
 	imagesByTab,
 }: InferGetStaticPropsType<GetStaticProps<ContentType>>) {
 	return (
-		<main className="relative h-screen w-screen space-y-12">
+		<main className="relative h-screen w-full space-y-12">
 			<NavBar />
 			<HeroSection />
-
 			<div id="our-works">
 				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark  text-4xl sm:text-6xl  font-bold mb-8">
 					Наши работы

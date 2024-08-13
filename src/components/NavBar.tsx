@@ -16,10 +16,10 @@ export default function Header({ className }: { className?: string }) {
 			className={`bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md fixed w-full z-[100] top-0 left-0 text-black dark:text-white shadow-md transition-colors duration-300 ease-in-out ${className}`}
 		>
 			<div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-				<div className="text-2xl flex items-center space-x-2">
+				<a href="#" className="text-2xl flex items-center space-x-2">
 					<Logo className="text-black dark:text-white w-8 h-8" />
 					<span className="font-bold">Кованый дракон</span>
-				</div>
+				</a>
 				<div className="hidden md:flex items-center space-x-6">
 					<a
 						href="#our-works"
@@ -45,8 +45,8 @@ export default function Header({ className }: { className?: string }) {
 					>
 						Контакты
 					</a>
-					<ToggleThemeButton />
 				</div>
+				<ToggleThemeButton />
 				{/* Бургер-меню для мобильных устройств */}
 				<button
 					type="button"
@@ -58,7 +58,7 @@ export default function Header({ className }: { className?: string }) {
 			</div>
 			{/* Мобильное меню */}
 			{menuOpen && (
-				<div className="md:hidden flex flex-col items-center space-y-4 bg-white dark:bg-black bg-opacity-95 dark:bg-opacity-95 backdrop-blur-md p-5">
+				<div className="md:hidden flex flex-col items-center space-y-4 p-5 bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md">
 					<a
 						href="#our-works"
 						className="hover:text-red-400 transition-colors duration-200"
