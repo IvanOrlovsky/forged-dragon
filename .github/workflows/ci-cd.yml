@@ -27,9 +27,15 @@ jobs:
             - name: Build the application
               run: npm run build
 
+            - name: Create .ssh directory
+              run: |
+                  mkdir -p ~/.ssh
+                  chmod 700 ~/.ssh
+
             - name: Add server to known_hosts
               run: |
                   ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
+                  cat ~/.ssh/known_hosts  # опционально, для проверки
 
             - name: Deploy to server
               if: github.ref == 'refs/heads/main'
