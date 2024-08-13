@@ -49,9 +49,9 @@ jobs:
 
             - name: Deploy to VPS
               run: |
-                  scp -o StrictHostKeyChecking=no nextjs-build.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/path/to/your/project/
+                  scp -o StrictHostKeyChecking=no nextjs-build.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/root/forged-dragon
                   ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-                    cd /path/to/your/project
+                    cd /root/forged-dragon
                     tar -xzf nextjs-build.tar.gz
                     pnpm install --production
                     pnpm start
