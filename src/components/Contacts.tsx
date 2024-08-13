@@ -13,7 +13,7 @@ export default function Contacts() {
 						<p className="text-xl font-semibold">
 							Телефон: +7 (123) 456-78-90
 						</p>
-						<p className="text-xl font-semibold">
+						<p className="text-xl  font-semibold">
 							Email: example@example.com
 						</p>
 					</div>
