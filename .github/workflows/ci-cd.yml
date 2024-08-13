@@ -32,10 +32,14 @@ jobs:
                   mkdir -p ~/.ssh
                   chmod 700 ~/.ssh
 
+            - name: Debug SERVER_HOST
+              run: echo "SERVER_HOST is set to $SERVER_HOST"
+
             - name: Add server to known_hosts
               run: |
                   echo "$SERVER_HOST"
                   ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
+                  cat ~/.ssh/known_hosts
 
             - name: Deploy to server
               if: github.ref == 'refs/heads/main'
@@ -46,8 +50,11 @@ jobs:
               run: |
                   echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
                   chmod 600 key.pem
-                  scp -i key.pem -r ./out/* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/path/to/deploy/
-                  ssh -i key.pem ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
+                  # Test SSH connection
+                  ssh -i key.pem -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=10 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo SSH connection successful"
+                  # Deploy files
+                  scp -i key.pem -o StrictHostKeyChecking=no -r ./out/* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/path/to/deploy/
+                  ssh -i key.pem -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
                     cd /path/to/deploy &&
                     npm install &&
                     pm2 restart all
