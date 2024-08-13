@@ -6,6 +6,7 @@ export default function Document() {
 	return (
 		<Html lang="en" className="!scroll-smooth">
 			<Head>
+				<link rel="icon" href="/Logo.svg" type="image/svg+xml" />
 				<meta
 					name="description"
 					content="Мастерская художественной ковки 'Кованый дракон' предлагает эксклюзивные изделия из металла. Закажите уникальные кованые ворота, заборы, лестницы и декоративные элементы."

@@ -31,8 +31,31 @@ function YandexMap() {
 		<div
 			style={{ position: "relative", overflow: "hidden", height: "100%" }}
 		>
+			<a
+				href="https://yandex.ru/maps/org/zhelezny_drakon/122849766947/?utm_medium=mapframe&utm_source=maps"
+				style={{
+					color: "#eee",
+					fontSize: "12px",
+					position: "absolute",
+					top: "0px",
+				}}
+			>
+				Железный дракон
+			</a>
+			<a
+				href="https://yandex.ru/maps/967/obninsk/category/genre_sculpture/89667445721/?utm_medium=mapframe&utm_source=maps"
+				style={{
+					color: "#eee",
+					fontSize: "12px",
+					position: "absolute",
+					top: 14,
+				}}
+			>
+				Жанровая скульптура в Обнинске
+			</a>
+
 			<iframe
-				src="https://yandex.ru/map-widget/v1/?ll=36.630308%2C55.089686&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxOTg4MDgwNTUxEmbQoNC-0YHRgdC40Y8sINCa0LDQu9GD0LbRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0J7QsdC90LjQvdGB0LosINCc0L7RgdC60L7QstGB0LrQsNGPINGD0LvQuNGG0LAsIDUz0JAiCg26hBJCFShcXEI%2C&z=18"
+				src="https://yandex.ru/map-widget/v1/org/zhelezny_drakon/122849766947/reviews/?ll=36.626416%2C55.090318&z=16"
 				style={{ border: 0, width: "100%", height: "100%" }}
 				allowFullScreen
 				loading="lazy"

@@ -1,4 +1,5 @@
 import { ContentType } from "@/types/ContentType";
+import Image from "next/image";
 import { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -24,7 +25,9 @@ export default function Gallery1({ tabs, imagesByTab }: ContentType) {
 					</li>
 				))}
 			</ul>
-			<div className="mt-6">
+
+			{/* I need this gallery to be 1/2 height of screen */}
+			<div className=" mt-6 ">
 				<ImageGallery
 					items={
 						imagesByTab

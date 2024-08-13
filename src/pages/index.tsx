@@ -1,12 +1,11 @@
 "use client";
 
-import Gallery from "@/components/Gallery";
 import NavBar from "@/components/NavBar";
 import path from "path";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import fs from "fs";
 import { ContentType } from "@/types/ContentType";
-import MainHead from "@/components/MainHead";
+import HeroSection from "@/components/HeroSection";
 import Reviews from "@/components/Reviews";
 import Gallery1 from "@/components/Gallery1";
 import Contacts from "@/components/Contacts";
@@ -41,7 +40,7 @@ export default function Home({
 	return (
 		<main className={`relative h-screen w-screen`}>
 			<NavBar />
-			<MainHead />
+			<HeroSection />
 
 			<div id="our-works" className="mt-24">
 				<h2 className="text-accent-light dark:text-accent-dark pl-8 text-6xl font-bold mb-8">

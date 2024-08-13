@@ -5,22 +5,16 @@ import React, { useEffect, useState } from "react";
 
 export const ImagesSlider = ({
 	images,
-	overlay = true,
-	overlayClassName,
 	className,
 	autoplay = true,
 	direction = "right",
 }: {
 	images: string[];
-	overlay?: React.ReactNode;
-	overlayClassName?: string;
 	className?: string;
 	autoplay?: boolean;
 	direction?: "left" | "right";
 }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const [loading, setLoading] = useState(false);
-	const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
 	const handleNext = () => {
 		setCurrentIndex((prevIndex) =>
@@ -28,46 +22,7 @@ export const ImagesSlider = ({
 		);
 	};
 
-	const handlePrevious = () => {
-		setCurrentIndex((prevIndex) =>
-			prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
-		);
-	};
-
 	useEffect(() => {
-		loadImages();
-	}, []);
-
-	const loadImages = () => {
-		setLoading(true);
-		const loadPromises = images.map((image) => {
-			return new Promise((resolve, reject) => {
-				const img = new Image();
-				img.src = image;
-				img.onload = () => resolve(image);
-				img.onerror = reject;
-			});
-		});
-
-		Promise.all(loadPromises)
-			.then((loadedImages) => {
-				setLoadedImages(loadedImages as string[]);
-				setLoading(false);
-			})
-			.catch((error) => console.error("Failed to load images", error));
-	};
-
-	useEffect(() => {
-		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key === "ArrowRight") {
-				handleNext();
-			} else if (event.key === "ArrowLeft") {
-				handlePrevious();
-			}
-		};
-
-		window.addEventListener("keydown", handleKeyDown);
-
 		// autoplay
 		let interval: any;
 		if (autoplay) {
@@ -75,12 +30,8 @@ export const ImagesSlider = ({
 				handleNext();
 			}, 5000);
 		}
-
-		return () => {
-			window.removeEventListener("keydown", handleKeyDown);
-			clearInterval(interval);
-		};
-	}, []);
+		return () => clearInterval(interval);
+	}, [autoplay]);
 
 	const slideVariants = {
 		initial: {
@@ -113,8 +64,6 @@ export const ImagesSlider = ({
 		},
 	};
 
-	const areImagesLoaded = loadedImages.length > 0;
-
 	return (
 		<div
 			className={cn(
@@ -125,29 +74,23 @@ export const ImagesSlider = ({
 				perspective: "1000px",
 			}}
 		>
-			{areImagesLoaded}
-			{areImagesLoaded && overlay && (
-				<div
-					className={cn(
-						"absolute inset-0 bg-black/60 z-40",
-						overlayClassName
-					)}
-				/>
-			)}
+			{/* Градиентное затемнение */}
+			<div className="absolute inset-0 z-40 pointer-events-none">
+				<div className="h-full bg-gradient-to-r from-black/80 to-transparent"></div>
+			</div>
 
-			{areImagesLoaded && (
-				<AnimatePresence>
-					<motion.img
-						key={currentIndex}
-						src={loadedImages[currentIndex]}
-						initial="initial"
-						animate="visible"
-						exit={direction === "right" ? "rightExit" : "leftExit"}
-						variants={slideVariants}
-						className="image h-full w-full absolute inset-0 object-cover object-center"
-					/>
-				</AnimatePresence>
-			)}
+			<AnimatePresence>
+				<motion.img
+					key={currentIndex}
+					src={images[currentIndex]}
+					initial="initial"
+					animate="visible"
+					exit={direction === "right" ? "rightExit" : "leftExit"}
+					variants={slideVariants}
+					className="h-full w-full absolute inset-0 object-cover object-center"
+					alt={`Slide ${currentIndex + 1}`}
+				/>
+			</AnimatePresence>
 		</div>
 	);
 };
