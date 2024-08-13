@@ -28,6 +28,8 @@ jobs:
               run: tar -czf nextjs-build.tar.gz .next public package.json pnpm-lock.yaml
             - name: List files after build
               run: ls -la
+            - name: Print working directory
+              run: pwd
 
     deploy:
         environment:
@@ -45,6 +47,9 @@ jobs:
 
             - name: Print server variables
               run: echo "Server user ${{ secrets.SERVER_USER }}; Server host ${{ secrets.SERVER_HOST }}"
+
+            - name: List files before deploying
+              run: ls -la
 
             - name: Deploy to VPS
               run: |
