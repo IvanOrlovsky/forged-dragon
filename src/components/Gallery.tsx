@@ -1,15 +1,14 @@
 import { ContentType } from "@/types/ContentType";
-import Image from "next/image";
 import { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-export default function Gallery1({ tabs, imagesByTab }: ContentType) {
+export default function Gallery({ tabs, imagesByTab }: ContentType) {
 	const [activeTab, setActiveTab] = useState(tabs[0]);
 
 	return (
 		<div className="w-screen flex flex-col mt-2">
-			<ul className="bg-white p-3 rounded-lg w-fit self-center flex flex-wrap justify-center gap-3 text-xl font-medium text-center text-text-light ">
+			<ul className="bg-white p-3 rounded-lg w-fit self-center flex flex-wrap justify-center gap-3 text-sm sm:text-xl md:text-3xl font-medium text-center text-text-light ">
 				{tabs.map((tab) => (
 					<li key={tab}>
 						<button
@@ -26,8 +25,7 @@ export default function Gallery1({ tabs, imagesByTab }: ContentType) {
 				))}
 			</ul>
 
-			{/* I need this gallery to be 1/2 height of screen */}
-			<div className=" mt-6 ">
+			<div className="mt-6">
 				<ImageGallery
 					items={
 						imagesByTab
@@ -37,7 +35,24 @@ export default function Gallery1({ tabs, imagesByTab }: ContentType) {
 							}) || [{ original: "" }]
 					}
 					showPlayButton={false}
+					showFullscreenButton={false}
 					thumbnailPosition="left"
+					renderItem={(item) => {
+						return (
+							<div className="relative flex justify-center">
+								<img
+									src={item.original}
+									alt={item.original}
+									className="absolute blur-xl -z-10 h-[300px] sm:h-[500px] w-full object-cover"
+								/>
+								<img
+									src={item.original}
+									alt={item.original}
+									className="w-full h-[300px] sm:h-[500px] object-contain"
+								/>
+							</div>
+						);
+					}}
 				/>
 			</div>
 		</div>

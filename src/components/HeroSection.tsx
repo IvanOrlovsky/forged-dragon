@@ -18,7 +18,7 @@ export default function HeroSection() {
 			/>
 
 			{/* Content */}
-			<div className="relative z-50 flex flex-col justify-center h-full px-4 sm:px-8 max-w-screen-lg ">
+			<div className="relative z-50 flex flex-col justify-center h-full pl-4 sm:pl-8 max-w-screen-lg ">
 				<div>
 					<h1 className="text-4xl sm:text-6xl md:text-8xl font-bold leading-tight text-white">
 						Кованый Дракон
