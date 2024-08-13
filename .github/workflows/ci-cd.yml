@@ -68,6 +68,6 @@ jobs:
                     set -x  # Включение режима отладки
                     cd /root/forged-dragon || { echo "Не удалось перейти в директорию"; exit 1; }
                     tar -xzf nextjs-build.tar.gz || { echo "Не удалось распаковать архив"; exit 1; }
-                    pnpm install --production || { echo "Не удалось установить зависимости"; exit 1; }
-                    pnpm start || { echo "Не удалось запустить приложение"; exit 1; }
+                    npm install --production || { echo "Не удалось установить зависимости"; exit 1; }
+                    npm start || { echo "Не удалось запустить приложение"; exit 1; }
                   EOF
