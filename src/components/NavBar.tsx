@@ -13,7 +13,7 @@ export default function Header({ className }: { className?: string }) {
 
 	return (
 		<nav
-			className={`bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md fixed w-full z-[100] top-0 left-0 text-black dark:text-white shadow-md transition-colors duration-300 ease-in-out ${className}`}
+			className={`bg-white dark:bg-black md:bg-opacity-80 md:dark:bg-opacity-80 md:backdrop-blur-md fixed w-full z-[100] top-0 left-0 text-black dark:text-white shadow-md transition-colors duration-300 ease-in-out ${className}`}
 		>
 			<div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
 				<a href="#" className="text-2xl flex items-center space-x-2">
@@ -49,6 +49,9 @@ export default function Header({ className }: { className?: string }) {
 				</div>
 
 				{/* Бургер-меню для мобильных устройств */}
+				<div className="block md:hidden -mr-16 text-3xl focus:outline-none">
+					<ToggleThemeButton />
+				</div>
 				<button
 					type="button"
 					className="block md:hidden ml-4 text-3xl focus:outline-none"
@@ -59,7 +62,7 @@ export default function Header({ className }: { className?: string }) {
 			</div>
 			{/* Мобильное меню */}
 			{menuOpen && (
-				<div className="md:hidden flex flex-col items-center space-y-4 p-5 bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md">
+				<div className="md:hidden flex flex-col items-center space-y-4 p-5 bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md transition-colors duration-300 ease-in-out">
 					<a
 						href="#our-works"
 						className="hover:text-red-400 transition-colors duration-200"
@@ -91,7 +94,8 @@ export default function Header({ className }: { className?: string }) {
 }
 
 function ToggleThemeButton() {
-	// Функция для установки темы
+	const [isDarkMode, setIsDarkMode] = useState(false);
+
 	const setTheme = (theme: "light" | "dark") => {
 		if (typeof document !== "undefined") {
 			const root = window.document.documentElement;
@@ -103,10 +107,10 @@ function ToggleThemeButton() {
 			}
 
 			localStorage.setItem("theme", theme);
+			setIsDarkMode(theme === "dark");
 		}
 	};
 
-	// useEffect для начальной установки темы
 	useEffect(() => {
 		if (typeof document !== "undefined") {
 			const savedTheme = localStorage.getItem("theme");
@@ -120,20 +124,14 @@ function ToggleThemeButton() {
 			}
 		}
 	}, []);
+
 	const toggleTheme = () => {
-		if (typeof document !== "undefined") {
-			const currentTheme = document.documentElement.classList.contains(
-				"dark"
-			)
-				? "dark"
-				: "light";
-			setTheme(currentTheme === "dark" ? "light" : "dark");
-		}
+		setTheme(isDarkMode ? "light" : "dark");
 	};
+
 	return (
 		<button type="button" onClick={toggleTheme} className="ml-4">
-			{typeof document !== "undefined" &&
-			document.documentElement.classList.contains("dark") ? (
+			{isDarkMode ? (
 				<LightModeIcon className="w-6 h-6" />
 			) : (
 				<DarkModeIcon className="w-6 h-6" />
