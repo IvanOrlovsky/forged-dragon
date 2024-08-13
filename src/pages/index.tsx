@@ -43,19 +43,22 @@ export default function Home({
 			<HeroSection />
 
 			<div id="our-works">
-				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark  text-4xl sm:text-6xl md:text-8xl font-bold mb-8">
+				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark  text-4xl sm:text-6xl  font-bold mb-8">
 					Наши работы
 				</h2>
 				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			</div>
-			<div id="reviews">
-				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark text-4xl sm:text-6xl md:text-8xl font-bold mb-8">
+			{/* <div id="reviews">
+				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark text-4xl sm:text-6xl  font-bold mb-8">
 					Отзывы
 				</h2>
 				<Reviews />
-			</div>
-			<div id="contacts">
-				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark text-4xl sm:text-6xl md:text-8xl font-bold mb-8">
+			</div> */}
+			<div
+				id="contacts"
+				className="bg-accent-light dark:bg-accent-dark p-10"
+			>
+				<h2 className="pl-4 sm:pl-8 dark:text-text-light text-text-dark text-4xl sm:text-6xl  font-bold mb-8">
 					Как с нами связаться?
 				</h2>
 				<Contacts />

@@ -1,12 +1,12 @@
 export default function Contacts() {
 	return (
 		<div className="flex flex-col sm:flex-row w-full h-screen">
-			<div className="h-1/2 sm:w-1/2 p-10 bg-accent-light dark:bg-accent-dark flex flex-col justify-center">
+			<div className="h-1/2 sm:w-1/2 p-10  flex flex-col justify-center">
 				<div className="border-l-8 dark:border-text-light border-text-dark pl-5">
 					<h2 className="text-4xl dark:text-text-light text-text-dark font-bold mb-5">
 						Контактная информация
 					</h2>
-					<div className="mb-5">
+					<div className="mb-5 dark:text-text-light text-text-dark">
 						<p className="text-xl font-semibold">
 							Адрес: Московская улица, 53А, Обнинск
 						</p>

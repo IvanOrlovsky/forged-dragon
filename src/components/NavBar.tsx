@@ -13,7 +13,7 @@ export default function Header({ className }: { className?: string }) {
 
 	return (
 		<nav
-			className={`bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md fixed w-full z-50 top-0 left-0 text-black dark:text-white shadow-md transition-colors duration-300 ease-in-out ${className}`}
+			className={`bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md fixed w-full z-[100] top-0 left-0 text-black dark:text-white shadow-md transition-colors duration-300 ease-in-out ${className}`}
 		>
 			<div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
 				<div className="text-2xl flex items-center space-x-2">
