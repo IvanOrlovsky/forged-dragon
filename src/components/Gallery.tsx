@@ -36,7 +36,7 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 					}
 					showPlayButton={false}
 					showFullscreenButton={false}
-					thumbnailPosition="left"
+					thumbnailPosition="bottom"
 					renderItem={(item) => {
 						return (
 							<div className="relative flex justify-center">
