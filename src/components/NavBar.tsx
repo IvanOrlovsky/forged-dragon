@@ -45,8 +45,9 @@ export default function Header({ className }: { className?: string }) {
 					>
 						Контакты
 					</a>
+					<ToggleThemeButton />
 				</div>
-				<ToggleThemeButton />
+
 				{/* Бургер-меню для мобильных устройств */}
 				<button
 					type="button"
