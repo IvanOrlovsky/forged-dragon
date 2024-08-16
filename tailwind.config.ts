@@ -47,6 +47,7 @@ const config: Config = {
 	},
 	plugins: [addVariablesForColors],
 	darkMode: "class",
+	important: true,
 };
 export default config;
 
