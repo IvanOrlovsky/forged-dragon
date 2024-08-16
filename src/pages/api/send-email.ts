@@ -1,12 +1,74 @@
 import nodemailer from "nodemailer";
 import type { NextApiRequest, NextApiResponse } from "next";
+import https from "https";
+import querystring from "querystring";
+
+const SMARTCAPTCHA_SERVER_KEY =
+	"ysc2_6PL3DlbuFkmyHVxmGWJYEEgcOUScqr8JbAeRSP9129dac6c6"; // Ваш серверный ключ Yandex SmartCaptcha
+
+function checkCaptcha(token: string, ip: string): Promise<boolean> {
+	return new Promise((resolve, reject) => {
+		const options = {
+			hostname: "smartcaptcha.yandexcloud.net",
+			port: 443,
+			path:
+				"/validate?" +
+				querystring.stringify({
+					secret: SMARTCAPTCHA_SERVER_KEY,
+					token: token,
+					ip: ip,
+				}),
+			method: "GET",
+		};
+
+		const req = https.request(options, (res) => {
+			let data = "";
+			res.on("data", (chunk) => {
+				data += chunk;
+			});
+			res.on("end", () => {
+				if (res.statusCode !== 200) {
+					console.error(
+						`Ошибка валидации CAPTCHA: код=${res.statusCode}; сообщение=${data}`
+					);
+					resolve(false);
+				} else {
+					const result = JSON.parse(data);
+					resolve(result.status === "ok");
+				}
+			});
+		});
+
+		req.on("error", (error) => {
+			console.error("Ошибка при обращении к сервису CAPTCHA:", error);
+			reject(false);
+		});
+
+		req.end();
+	});
+}
 
 export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
 	if (req.method === "POST") {
-		const { name, phoneNumber, message } = req.body;
+		const { name, phoneNumber, message, captchaToken } = req.body;
+
+		// Получаем IP-адрес пользователя
+		const userIp =
+			req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+		// Проверка CAPTCHA
+		const isHuman = await checkCaptcha(captchaToken, userIp as string);
+
+		if (!isHuman) {
+			return res.status(400).json({
+				success: false,
+				message:
+					"Проверка CAPTCHA не пройдена. Пожалуйста, попробуйте еще раз.",
+			});
+		}
 
 		const transporter = nodemailer.createTransport({
 			service: "gmail",

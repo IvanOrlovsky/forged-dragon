@@ -47,18 +47,19 @@ export default function Header({ className }: { className?: string }) {
 					</a>
 					<ToggleThemeButton />
 				</div>
-
-				{/* Бургер-меню для мобильных устройств */}
-				<div className="block md:hidden -mr-16 text-3xl focus:outline-none">
-					<ToggleThemeButton />
+				{/* Мобильные кнопки */}
+				<div className="md:hidden flex flex-row gap-2">
+					<div className="text-3xl focus:outline-none">
+						<ToggleThemeButton />
+					</div>
+					<button
+						type="button"
+						className="text-3xl focus:outline-none"
+						onClick={toggleMenu}
+					>
+						☰
+					</button>
 				</div>
-				<button
-					type="button"
-					className="block md:hidden ml-4 text-3xl focus:outline-none"
-					onClick={toggleMenu}
-				>
-					☰
-				</button>
 			</div>
 			{/* Мобильное меню */}
 			{menuOpen && (

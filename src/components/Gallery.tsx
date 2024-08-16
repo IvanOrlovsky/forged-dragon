@@ -8,7 +8,7 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 
 	return (
 		<div className="flex flex-col">
-			<ul className="bg-white p-3 rounded-lg w-fit self-center flex flex-wrap justify-center gap-3 text-sm sm:text-xl  font-medium text-center text-text-light ">
+			<ul className="bg-white p-1 sm:p-3 rounded-lg w-fit self-center flex flex-wrap justify-center sm:gap-3 text-sm sm:text-xl  font-medium text-center text-text-light ">
 				{tabs.map((tab) => (
 					<li key={tab}>
 						<button
