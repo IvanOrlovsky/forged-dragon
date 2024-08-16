@@ -1,4 +1,4 @@
-name: Build and Deploy Next.js Site
+name: Workflow Кованого дракона
 
 on:
     push:
@@ -17,14 +17,14 @@ jobs:
               with:
                   node-version: "20.16.0"
 
-            - name: Install pnpm
+            - name: Установка pnpm
               run: npm install -g pnpm
 
-            - name: Install dependencies
+            - name: Установка зависимостей
               run: pnpm install
 
-            - name: Build with Next.js
+            - name: Сборка проекта
               run: pnpm build
 
-            - name: Start Next.js
-              run: /home/github-runner/.nvm/versions/node/v20.16.0/bin/pm2 start npm --name "nextjs-app" -- start
+            - name: Перезапуск проекта
+              run: /home/github-runner/.nvm/versions/node/v20.16.0/bin/pm2 restart nextjs-app || /home/github-runner/.nvm/versions/node/v20.16.0/bin/pm2 start npm --name "nextjs-app" -- start
