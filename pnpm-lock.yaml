@@ -14,6 +14,9 @@ importers:
       '@types/react-image-gallery':
         specifier: ^1.2.4
         version: 1.2.4
+      '@types/react-input-mask':
+        specifier: ^3.0.5
+        version: 3.0.5
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -903,6 +906,9 @@ packages:
 
   '@types/react-image-gallery@1.2.4':
     resolution: {integrity: sha512-H0xpmT5rlSH0qiTvcUDCPDLRBi3J3Xa4COqaDqGb7ffLFpQoPAxpZdNuKCuThhFI0xJmNnMubZiD6B3kCBHtcw==}
+
+  '@types/react-input-mask@3.0.5':
+    resolution: {integrity: sha512-vQ1x6ykwjDrDrJZq1zw5/uQ+nqGHUV6bWscsVZJ/qsNwNXWxZm7KRBHLJ5k6TQt3MHjhpoYHzPH6FwjVSZODHA==}
 
   '@types/react@18.3.3':
     resolution: {integrity: sha512-hti/R0pS0q1/xx+TsI73XIqk26eBsISZ2R0wUijXIngRK9R/e7Xw/cXVxQK7R5JjW+SV4zGcn5hXjudkN/pLIw==}
@@ -2738,6 +2744,10 @@ snapshots:
       '@types/react': 18.3.3
 
   '@types/react-image-gallery@1.2.4':
+    dependencies:
+      '@types/react': 18.3.3
+
+  '@types/react-input-mask@3.0.5':
     dependencies:
       '@types/react': 18.3.3
 
