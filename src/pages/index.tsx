@@ -57,9 +57,6 @@ export default function Home({
 				id="contacts"
 				className="bg-accent-light dark:bg-accent-dark p-10"
 			>
-				<h2 className="pl-4 sm:pl-8 dark:text-text-light text-text-dark text-4xl sm:text-6xl  font-bold mb-8">
-					Как с нами связаться?
-				</h2>
 				<Contacts />
 			</div>
 		</main>

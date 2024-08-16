@@ -1,62 +1,81 @@
+import ClientForm from "./ClientForm";
+import Telegram from "../../public/icons/Telegram.svg";
+import WhatsApp from "../../public/icons/WhatsApp.svg";
+import Phone from "../../public/icons/Phone.svg";
+
 export default function Contacts() {
 	return (
-		<div className="flex flex-col sm:flex-row w-full h-screen">
-			<div className="h-1/2 sm:w-1/2 p-10  flex flex-col justify-center">
+		<div className="flex flex-col sm:flex-row items-center sm:p-10 gap-8 sm:gap-12">
+			<div>
+				<h2 className="pl-4 sm:pl-8 dark:text-text-light text-text-dark text-4xl sm:text-6xl  font-bold mb-8 h-full">
+					Как с нами связаться?
+				</h2>
+			</div>
+			<div className="flex flex-col gap-6 w-full sm:w-1/2 sm:p-10">
 				<div className="border-l-8 dark:border-text-light border-text-dark pl-5">
-					<h2 className="text-4xl dark:text-text-light text-text-dark font-bold mb-5">
-						Контактная информация
+					<h2 className="text-2xl sm:text-3xl dark:text-text-light text-text-dark font-bold mb-5">
+						Оставьте заявку здесь:
 					</h2>
-					<div className="mb-5 dark:text-text-light text-text-dark">
-						<p className="text-xl font-semibold">
-							Адрес: Московская улица, 53А, Обнинск
-						</p>
-						<p className="text-xl font-semibold">
-							Телефон: +7 (123) 456-78-90
-						</p>
-						<p className="text-xl  font-semibold">
-							Email: example@example.com
-						</p>
-					</div>
+					<ClientForm />
 				</div>
 			</div>
-			<div className="h-1/2 sm:w-1/2">
+
+			<div className="flex flex-col gap-5 w-full sm:w-1/2">
 				<YandexMap />
+				{/* <div className="flex flex-col sm:flex-row justify-center gap-4">
+					<TelegramLink />
+					<WhatsAppLink />
+					<PhoneLink />
+				</div> */}
 			</div>
 		</div>
 	);
 }
 
+function TelegramLink() {
+	return (
+		<a
+			href="https://t.me/drillisawesome"
+			target="_blank"
+			className="flex items-center gap-2 p-2 text-lg sm:text-xl font-semibold bg-[#2AABEE] hover:bg-[#229ED9] rounded-lg text-white"
+		>
+			<Telegram className="w-6 h-6 sm:w-8 sm:h-8" />
+			Телеграм
+		</a>
+	);
+}
+
+function WhatsAppLink() {
+	return (
+		<a
+			href="https://wa.me/79158952780"
+			target="_blank"
+			className="flex items-center gap-2 p-2 text-lg sm:text-xl font-semibold bg-[#25d366] hover:bg-[#075e54] rounded-lg text-white"
+		>
+			<WhatsApp className="w-6 h-6 sm:w-8 sm:h-8" />
+			WhatsApp
+		</a>
+	);
+}
+
+function PhoneLink() {
+	return (
+		<a
+			href="tel: +7 (915) 895-27-80"
+			className="flex items-center gap-2 p-2 text-lg sm:text-xl font-semibold bg-accent-light hover:bg-[#075e54] rounded-lg text-white"
+		>
+			<Phone className="w-6 h-6 sm:w-8 sm:h-8" />
+			+7 123 456 78 90
+		</a>
+	);
+}
+
 function YandexMap() {
 	return (
-		<div
-			style={{ position: "relative", overflow: "hidden", height: "100%" }}
-		>
-			<a
-				href="https://yandex.ru/maps/org/zhelezny_drakon/122849766947/?utm_medium=mapframe&utm_source=maps"
-				style={{
-					color: "#eee",
-					fontSize: "12px",
-					position: "absolute",
-					top: "0px",
-				}}
-			>
-				Железный дракон
-			</a>
-			<a
-				href="https://yandex.ru/maps/967/obninsk/category/genre_sculpture/89667445721/?utm_medium=mapframe&utm_source=maps"
-				style={{
-					color: "#eee",
-					fontSize: "12px",
-					position: "absolute",
-					top: 14,
-				}}
-			>
-				Жанровая скульптура в Обнинске
-			</a>
-
+		<div className="relative w-full h-72 sm:h-96 rounded-lg overflow-hidden">
 			<iframe
 				src="https://yandex.ru/map-widget/v1/org/zhelezny_drakon/122849766947/reviews/?ll=36.626416%2C55.090318&z=16"
-				style={{ border: 0, width: "100%", height: "100%" }}
+				className="absolute top-0 left-0 w-full h-full border-none"
 				allowFullScreen
 				loading="lazy"
 			></iframe>
