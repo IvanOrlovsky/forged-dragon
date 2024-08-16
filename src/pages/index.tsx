@@ -43,7 +43,7 @@ export default function Home({
 			<HeroSection />
 			<div id="our-works">
 				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark  text-4xl sm:text-6xl  font-bold mb-8">
-					Наши работы {process.env.NEXT_PUBLIC_TEST}
+					Наши работы
 				</h2>
 				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			</div>

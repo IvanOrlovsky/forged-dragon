@@ -8,8 +8,6 @@ on:
 jobs:
     build:
         runs-on: self-hosted
-        env:
-            NEXT_PUBLIC_TEST: "TEST"
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
