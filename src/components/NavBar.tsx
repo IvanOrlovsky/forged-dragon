@@ -42,7 +42,7 @@ export default function Header({ className }: { className?: string }) {
 						href="#about"
 						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
-						О компании
+						О мастерской
 					</a>
 					<a
 						href="#contacts"
@@ -87,24 +87,28 @@ export default function Header({ className }: { className?: string }) {
 					<a
 						href="#our-works"
 						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						onClick={() => setMenuOpen(false)}
 					>
 						Наши работы
 					</a>
 					<a
 						href="#reviews"
 						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						onClick={() => setMenuOpen(false)}
 					>
 						Отзывы
 					</a>
 					<a
 						href="#about"
 						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						onClick={() => setMenuOpen(false)}
 					>
 						О компании
 					</a>
 					<a
 						href="#contacts"
 						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						onClick={() => setMenuOpen(false)}
 					>
 						Контакты
 					</a>

@@ -5,7 +5,10 @@ import Phone from "../../public/icons/Phone.svg";
 
 export default function Contacts() {
 	return (
-		<div className="flex flex-col xl:flex-row items-center xl:p-10 gap-8 xl:gap-12">
+		<section
+			id="contacts"
+			className="flex flex-col xl:flex-row items-center xl:p-10 gap-8 xl:gap-12"
+		>
 			<div>
 				<h2 className="text-center text-light-text dark:text-dark-text text-4xl xl:text-6xl font-bold mb-8 h-full">
 					Как с нами связаться?
@@ -22,7 +25,7 @@ export default function Contacts() {
 			<div className="flex flex-col gap-5 w-full xl:w-1/2">
 				<YandexMap />
 			</div>
-		</div>
+		</section>
 	);
 }
 

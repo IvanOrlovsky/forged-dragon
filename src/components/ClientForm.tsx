@@ -30,11 +30,21 @@ const ClientForm = () => {
 		setCaptchaToken(token);
 	};
 
+	const validatePhoneNumber = (phoneNumber: string) => {
+		const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+		return phoneRegex.test(phoneNumber);
+	};
+
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (!captchaToken) {
 			toast.error("Пожалуйста, пройдите проверку CAPTCHA.");
+			return;
+		}
+
+		if (!validatePhoneNumber(formData.phoneNumber)) {
+			toast.error("Пожалуйста, введите корректный номер телефона.");
 			return;
 		}
 
