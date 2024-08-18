@@ -73,14 +73,14 @@ export default async function handler(
 		const transporter = nodemailer.createTransport({
 			service: "gmail",
 			auth: {
-				user: "iiiaaaiii706@gmail.com",
+				user: process.env.EMAIL,
 				pass: "mdrw avdf htlv erqo",
 			},
 		});
 
 		const mailOptions = {
-			from: "iiiaaaiii706@gmail.com",
-			to: "iiiaaaiii706@gmail.com",
+			from: process.env.EMAIL,
+			to: process.env.EMAIL,
 			subject: "Новая заявка от клиента",
 			html: `
 			<!DOCTYPE html>

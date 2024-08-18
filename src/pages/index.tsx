@@ -1,12 +1,9 @@
-"use client";
-
 import NavBar from "@/components/NavBar";
 import path from "path";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import fs from "fs";
 import { ContentType } from "@/types/ContentType";
 import HeroSection from "@/components/HeroSection";
-import Reviews from "@/components/Reviews";
 import Gallery from "@/components/Gallery";
 import Contacts from "@/components/Contacts";
 
@@ -38,24 +35,21 @@ export default function Home({
 	imagesByTab,
 }: InferGetStaticPropsType<GetStaticProps<ContentType>>) {
 	return (
-		<main className="relative h-screen w-full space-y-12">
+		<main className="relative min-h-screen w-full space-y-12 bg-light-text dark:bg-dark-text">
 			<NavBar />
 			<HeroSection />
-			<div id="our-works">
-				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark  text-4xl sm:text-6xl  font-bold mb-8">
+			<div
+				id="our-works"
+				className="bg-light-section dark:bg-dark-section py-12"
+			>
+				<h2 className="pl-4 sm:pl-8 text-light-accent dark:text-dark-accent text-4xl sm:text-6xl font-bold mb-8">
 					Наши работы
 				</h2>
 				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			</div>
-			{/* <div id="reviews">
-				<h2 className="pl-4 sm:pl-8 text-accent-light dark:text-accent-dark text-4xl sm:text-6xl  font-bold mb-8">
-					Отзывы
-				</h2>
-				<Reviews />
-			</div> */}
 			<div
 				id="contacts"
-				className="bg-accent-light dark:bg-accent-dark p-10"
+				className="bg-light-accent dark:bg-dark-accent p-5 sm:p-10 rounded-lg shadow-lg"
 			>
 				<Contacts />
 			</div>

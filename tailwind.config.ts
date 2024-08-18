@@ -21,14 +21,18 @@ const config: Config = {
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 			colors: {
-				"primary-dark": "rgb(var(--color-primary-dark)) ",
-				"accent-dark": "rgb(var(--color-accent-dark))",
-				"text-dark": "rgb(var(--color-text-dark))",
-				"sub-text-dark": "rgb(var(--color-sub-text-dark))",
-				"primary-light": "rgb(var(--color-primary-light))",
-				"accent-light": "rgb(var(--color-accent-light))",
-				"text-light": "rgb(var(--color-text-light))",
-				"sub-text-light": "rgb(var(--color-sub-text-light))",
+				light: {
+					primary: "rgb(var(--color-primary-light))",
+					accent: "rgb(var(--color-accent-light))",
+					text: "rgb(var(--color-text-light))",
+					subtext: "rgb(var(--color-sub-text-light))",
+				},
+				dark: {
+					primary: "rgb(var(--color-primary-dark))",
+					accent: "rgb(var(--color-accent-dark))",
+					text: "rgb(var(--color-text-dark))",
+					subtext: "rgb(var(--color-sub-text-dark))",
+				},
 			},
 			fontFamily: {
 				garamond: ["EB Garamond", "serif"],

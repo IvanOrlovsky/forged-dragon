@@ -11,47 +11,67 @@ export default function Header({ className }: { className?: string }) {
 		setMenuOpen(!menuOpen);
 	};
 
+	const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
+	const email = process.env.NEXT_PUBLIC_EMAIL;
+
 	return (
 		<nav
-			className={`bg-white dark:bg-black md:bg-opacity-80 md:dark:bg-opacity-80 md:backdrop-blur-md fixed w-full z-[100] top-0 left-0 text-black dark:text-white shadow-md transition-colors duration-300 ease-in-out ${className}`}
+			className={`bg-light-primary dark:bg-dark-primary lg:bg-opacity-80 fixed w-full z-[100] top-0 left-0 dark:text-light-text text-dark-text shadow-lg transition-colors duration-300 ease-in-out ${className}`}
 		>
 			<div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
 				<a href="#" className="text-2xl flex items-center space-x-2">
-					<Logo className="text-black dark:text-white w-8 h-8" />
-					<span className="font-bold">Кованый дракон</span>
+					<Logo className="w-8 h-8 " />
+					<span className="hidden lg:flex font-bold">
+						Кованый дракон
+					</span>
 				</a>
-				<div className="hidden md:flex items-center space-x-6">
+				<div className="hidden lg:flex items-center space-x-6">
 					<a
 						href="#our-works"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						Наши работы
 					</a>
 					<a
 						href="#reviews"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						Отзывы
 					</a>
 					<a
 						href="#about"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						О компании
 					</a>
 					<a
 						href="#contacts"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						Контакты
 					</a>
+					{/* Блок с контактами */}
+					<div className="flex items-center space-x-4">
+						<a
+							href={`tel:${phoneNumber}`}
+							className="font-bold hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						>
+							Позвоните сейчас: {phoneNumber}
+						</a>
+						{email && (
+							<a
+								href={`mailto:${email}`}
+								className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+							>
+								{email}
+							</a>
+						)}
+					</div>
 					<ToggleThemeButton />
 				</div>
 				{/* Мобильные кнопки */}
-				<div className="md:hidden flex flex-row gap-2">
-					<div className="text-3xl focus:outline-none">
-						<ToggleThemeButton />
-					</div>
+				<div className="lg:hidden flex flex-row gap-2 items-center">
+					<ToggleThemeButton />
 					<button
 						type="button"
 						className="text-3xl focus:outline-none"
@@ -63,31 +83,48 @@ export default function Header({ className }: { className?: string }) {
 			</div>
 			{/* Мобильное меню */}
 			{menuOpen && (
-				<div className="md:hidden flex flex-col items-center space-y-4 p-5 bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md transition-colors duration-300 ease-in-out">
+				<div className="lg:hidden flex flex-col items-center space-y-4 p-5 bg-light-primary dark:bg-dark-primary bg-opacity-80 dark:bg-opacity-80 backdrop-blur-lg transition-colors duration-300 ease-in-out">
 					<a
 						href="#our-works"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						Наши работы
 					</a>
 					<a
 						href="#reviews"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						Отзывы
 					</a>
 					<a
 						href="#about"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						О компании
 					</a>
 					<a
 						href="#contacts"
-						className="hover:text-red-400 transition-colors duration-200"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						Контакты
 					</a>
+					{/* Контакты в мобильном меню */}
+					<div className="flex flex-col items-center space-y-2">
+						<a
+							href={`tel:${phoneNumber}`}
+							className="font-bold hover:text-light-accent dark:hover:text-dark-accenttransition-colors duration-200"
+						>
+							Позвоните сейчас: {phoneNumber}
+						</a>
+						{email && (
+							<a
+								href={`mailto:${email}`}
+								className="hover:text-light-accent dark:hover:text-dark-accenttransition-colors duration-200"
+							>
+								{email}
+							</a>
+						)}
+					</div>
 				</div>
 			)}
 		</nav>
@@ -131,7 +168,12 @@ function ToggleThemeButton() {
 	};
 
 	return (
-		<button type="button" onClick={toggleTheme} className="ml-4">
+		<button
+			type="button"
+			onClick={toggleTheme}
+			className="p-2 rounded-full focus:outline-none hover:bg-light-subtext dark:hover:bg-dark-subtext transition"
+			aria-label="Toggle theme"
+		>
 			{isDarkMode ? (
 				<LightModeIcon className="w-6 h-6" />
 			) : (

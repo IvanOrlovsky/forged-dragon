@@ -7,31 +7,43 @@ export default function Contacts() {
 	return (
 		<div className="flex flex-col xl:flex-row items-center xl:p-10 gap-8 xl:gap-12">
 			<div>
-				<h2 className="text-center dark:text-text-light text-text-dark text-4xl xl:text-6xl  font-bold mb-8 h-full">
+				<h2 className="text-center text-light-text dark:text-dark-text text-4xl xl:text-6xl font-bold mb-8 h-full">
 					Как с нами связаться?
 				</h2>
 			</div>
 			<div className="flex flex-col gap-6 w-full xl:w-1/2 xl:p-10">
-				<div className="border-l-8 dark:border-text-light border-text-dark pl-5">
-					<h2 className="text-2xl xl:text-3xl dark:text-text-light text-text-dark font-bold mb-5">
+				<div className="border-l-4 sm:border-l-8 border-light-text dark:border-dark-text pl-2 sm:pl-5">
+					<h2 className="text-2xl xl:text-3xl text-light-text dark:text-dark-text font-bold mb-5">
 						Оставить заявку:
 					</h2>
 					<ClientForm />
 				</div>
 			</div>
-
 			<div className="flex flex-col gap-5 w-full xl:w-1/2">
 				<YandexMap />
-				{/* <div className="flex flex-col xl:flex-row justify-center gap-4">
-					<TelegramLink />
-					<WhatsAppLink />
-					<PhoneLink />
-				</div> */}
 			</div>
 		</div>
 	);
 }
 
+function YandexMap() {
+	return (
+		<div className="relative w-full h-72 xl:h-96 rounded-lg overflow-hidden">
+			<iframe
+				src="https://yandex.ru/map-widget/v1/org/zhelezny_drakon/122849766947/reviews/?ll=36.626416%2C55.090318&z=16"
+				className="absolute top-0 left-0 w-full h-full border-none"
+				allowFullScreen
+				loading="lazy"
+			></iframe>
+		</div>
+	);
+}
+
+/* <div className="flex flex-col xl:flex-row justify-center gap-4">
+<TelegramLink />
+<WhatsAppLink />
+<PhoneLink />
+</div> */
 function TelegramLink() {
 	return (
 		<a
@@ -67,18 +79,5 @@ function PhoneLink() {
 			<Phone className="w-6 h-6 xl:w-8 xl:h-8" />
 			+7 123 456 78 90
 		</a>
-	);
-}
-
-function YandexMap() {
-	return (
-		<div className="relative w-full h-72 xl:h-96 rounded-lg overflow-hidden">
-			<iframe
-				src="https://yandex.ru/map-widget/v1/org/zhelezny_drakon/122849766947/reviews/?ll=36.626416%2C55.090318&z=16"
-				className="absolute top-0 left-0 w-full h-full border-none"
-				allowFullScreen
-				loading="lazy"
-			></iframe>
-		</div>
 	);
 }

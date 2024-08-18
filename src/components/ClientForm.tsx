@@ -33,13 +33,11 @@ const ClientForm = () => {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		// Проверка токена CAPTCHA
 		if (!captchaToken) {
 			toast.error("Пожалуйста, пройдите проверку CAPTCHA.");
 			return;
 		}
 
-		// Ограничение по времени (1 минута)
 		const currentTime = Date.now();
 		if (currentTime - lastSubmitTime < 60000) {
 			toast.error(
@@ -57,7 +55,7 @@ const ClientForm = () => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ ...formData, captchaToken }), // Отправляем данные вместе с CAPTCHA
+				body: JSON.stringify({ ...formData, captchaToken }),
 			});
 
 			const data = await response.json();
@@ -70,7 +68,7 @@ const ClientForm = () => {
 			toast.error("Ошибка при отправке заявки. Попробуйте снова.");
 		} finally {
 			setIsSubmitting(false);
-			setCaptchaToken(""); // Сбрасываем значение CAPTCHA после отправки
+			setCaptchaToken("");
 		}
 	};
 
@@ -84,7 +82,7 @@ const ClientForm = () => {
 				<div className="flex flex-col">
 					<label
 						htmlFor="name"
-						className="dark:text-text-light text-text-dark text-md sm:text-xl"
+						className="text-light-text dark:text-dark-text text-md sm:text-xl"
 					>
 						Имя:
 					</label>
@@ -95,13 +93,13 @@ const ClientForm = () => {
 						value={formData.name}
 						onChange={handleChange}
 						required
-						className="p-2"
+						className="p-2 border-2 border-light-accent dark:border-dark-accent rounded-md"
 					/>
 				</div>
 				<div className="flex flex-col">
 					<label
 						htmlFor="phoneNumber"
-						className="dark:text-text-light text-text-dark text-md sm:text-xl"
+						className="text-light-text dark:text-dark-text text-md sm:text-xl"
 					>
 						Номер телефона:
 					</label>
@@ -111,14 +109,14 @@ const ClientForm = () => {
 						mask="+7 (999) 999-99-99"
 						value={formData.phoneNumber}
 						onChange={handleChange}
-						className="p-2 text-black"
+						className="p-2 border-2 border-light-accent dark:border-dark-accent rounded-md"
 						required
-					></InputMask>
+					/>
 				</div>
 				<div className="flex flex-col">
 					<label
 						htmlFor="message"
-						className="dark:text-text-light text-text-dark text-md sm:text-xl"
+						className="text-light-text dark:text-dark-text text-md sm:text-xl"
 					>
 						Комментарий к заявке:
 					</label>
@@ -128,10 +126,9 @@ const ClientForm = () => {
 						value={formData.message}
 						onChange={handleChange}
 						required
-						className="p-2"
+						className="p-2 border-2 border-light-accent dark:border-dark-accent rounded-md"
 					/>
 				</div>
-				{/* Добавление Yandex SmartCaptcha */}
 
 				<SmartCaptcha
 					sitekey="ysc1_6PL3DlbuFkmyHVxmGWJYJaEvVnZ1AeqG44dpolxO636355da"
@@ -140,7 +137,7 @@ const ClientForm = () => {
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					className="p-2 dark:bg-text-light bg-text-dark text-text-light dark:text-text-dark"
+					className="px-2 py-3 bg-light-text dark:bg-dark-text dark:text-light-text text-dark-text rounded-md transition-opacity duration-300 disabled:opacity-50"
 				>
 					{isSubmitting ? "Отправка..." : "Отправить"}
 				</button>
