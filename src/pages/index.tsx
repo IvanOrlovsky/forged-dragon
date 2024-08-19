@@ -7,6 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import Gallery from "@/components/Gallery";
 import Contacts from "@/components/Contacts";
 import About from "@/components/About";
+import WorkStages from "@/components/WorkStages";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const categoryDir = path.join(process.cwd(), "public", "category");
@@ -46,6 +47,7 @@ export default function Home({
 				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			</section>
 			<About />
+			<WorkStages />
 			<div className="bg-light-accent dark:bg-dark-accent p-5 sm:p-10 rounded-lg shadow-lg">
 				<Contacts />
 			</div>

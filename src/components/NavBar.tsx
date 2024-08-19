@@ -45,27 +45,25 @@ export default function Header({ className }: { className?: string }) {
 						О мастерской
 					</a>
 					<a
+						href="#work-stages"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+					>
+						Этапы работы
+					</a>
+					<a
 						href="#contacts"
 						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 					>
 						Контакты
 					</a>
 					{/* Блок с контактами */}
-					<div className="flex  items-center gap-4">
+					<div className="flex items-center">
 						<a
 							href={`tel:${phoneNumber}`}
 							className="font-extrabold hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 						>
 							{phoneNumber}
 						</a>
-						{email && (
-							<a
-								href={`mailto:${email}`}
-								className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
-							>
-								{email}
-							</a>
-						)}
 					</div>
 					<ToggleThemeButton />
 				</div>
@@ -104,6 +102,13 @@ export default function Header({ className }: { className?: string }) {
 						onClick={() => setMenuOpen(false)}
 					>
 						О компании
+					</a>
+					<a
+						href="#work-stages"
+						className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						onClick={() => setMenuOpen(false)}
+					>
+						Этапы работы
 					</a>
 					<a
 						href="#contacts"
