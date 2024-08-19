@@ -51,12 +51,12 @@ export default function Header({ className }: { className?: string }) {
 						Контакты
 					</a>
 					{/* Блок с контактами */}
-					<div className="flex items-center space-x-4">
+					<div className="flex  items-center gap-4">
 						<a
 							href={`tel:${phoneNumber}`}
-							className="font-bold hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+							className="font-extrabold hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 						>
-							Позвоните сейчас: {phoneNumber}
+							{phoneNumber}
 						</a>
 						{email && (
 							<a
