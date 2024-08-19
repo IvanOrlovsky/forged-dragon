@@ -17,3 +17,6 @@
 		--color-sub-text-dark: 189 189 189; /* Дополнительный текст для темной темы */
 	}
 }
+:root {
+	@apply font-serif;
+}

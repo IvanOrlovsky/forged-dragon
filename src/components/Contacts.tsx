@@ -5,27 +5,31 @@ import Phone from "../../public/icons/Phone.svg";
 
 export default function Contacts() {
 	return (
-		<section
-			id="contacts"
-			className="flex flex-col xl:flex-row items-center xl:p-10 gap-8 xl:gap-12"
-		>
-			<div>
-				<h2 className="text-center text-light-text dark:text-dark-text text-4xl xl:text-6xl font-bold mb-8 h-full">
-					Как с нами связаться?
-				</h2>
-			</div>
-			<div className="flex flex-col gap-6 w-full xl:w-1/2 xl:p-10">
-				<div className="border-l-4 sm:border-l-8 border-light-text dark:border-dark-text pl-2 sm:pl-5">
-					<h2 className="text-2xl xl:text-3xl text-light-text dark:text-dark-text font-bold mb-5">
-						Оставить заявку:
+		<>
+			<section
+				id="contacts"
+				className="flex flex-col xl:flex-row items-center xl:p-10 gap-8 xl:gap-12"
+			>
+				<div>
+					<h2 className="text-center text-light-text dark:text-dark-text text-4xl xl:text-6xl font-bold mb-8 h-full">
+						Как с нами связаться?
 					</h2>
-					<ClientForm />
 				</div>
-			</div>
-			<div className="flex flex-col gap-5 w-full xl:w-1/2">
-				<YandexMap />
-			</div>
-		</section>
+				<div className="flex flex-col w-full xl:w-1/2 xl:pr-10">
+					<div className="border-r-4 sm:border-r-8 border-light-text dark:border-dark-text pr-2 sm:pr-5">
+						<h2 className="text-center text-2xl xl:text-3xl text-light-text dark:text-dark-text font-bold mb-5">
+							Оставить заявку:
+						</h2>
+						<ClientForm />
+					</div>
+				</div>
+				<div className="flex flex-row gap-5 w-full xl:w-1/2">
+					<div className=" w-full ">
+						<YandexMap />
+					</div>
+				</div>
+			</section>
+		</>
 	);
 }
 
@@ -42,11 +46,15 @@ function YandexMap() {
 	);
 }
 
-/* <div className="flex flex-col xl:flex-row justify-center gap-4">
-<TelegramLink />
-<WhatsAppLink />
-<PhoneLink />
-</div> */
+function Social() {
+	return (
+		<div className="flex flex-row gap-3 items-center w-full">
+			<TelegramLink />
+			<WhatsAppLink />
+			<PhoneLink />
+		</div>
+	);
+}
 function TelegramLink() {
 	return (
 		<a
@@ -55,7 +63,6 @@ function TelegramLink() {
 			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#2AABEE] hover:bg-[#229ED9] rounded-lg text-white"
 		>
 			<Telegram className="w-6 h-6 xl:w-8 xl:h-8" />
-			Телеграм
 		</a>
 	);
 }
@@ -68,7 +75,6 @@ function WhatsAppLink() {
 			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#25d366] hover:bg-[#075e54] rounded-lg text-white"
 		>
 			<WhatsApp className="w-6 h-6 xl:w-8 xl:h-8" />
-			WhatsApp
 		</a>
 	);
 }
@@ -77,10 +83,9 @@ function PhoneLink() {
 	return (
 		<a
 			href="tel: +7 (915) 895-27-80"
-			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-accent-light hover:bg-[#075e54] rounded-lg text-white"
+			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-slate-400 hover:bg-[#075e54] rounded-lg text-white"
 		>
 			<Phone className="w-6 h-6 xl:w-8 xl:h-8" />
-			+7 123 456 78 90
 		</a>
 	);
 }

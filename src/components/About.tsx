@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function About() {
 	return (
 		<section id="about" className="py-12 px-4 sm:px-8">
-			<h2 className="text-light-accent dark:text-dark-accent text-4xl sm:text-6xl font-bold mb-8">
+			<h2 className="text-light-accent dark:text-dark-accent text-4xl sm:text-6xl font-bold mb-12">
 				О мастерской
 			</h2>
 			<div className="flex flex-col gap-2">

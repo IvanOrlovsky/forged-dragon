@@ -64,7 +64,7 @@ const WorkStages = () => {
 							<div className="text-4xl text-indigo-500 mb-4">
 								{stage.icon}
 							</div>
-							<h3 className="text-xl font-semibold text-gray-800">
+							<h3 className="text-xl text-center font-semibold text-gray-800">
 								{stage.title}
 							</h3>
 							<p className="mt-4 text-gray-600 text-center">
