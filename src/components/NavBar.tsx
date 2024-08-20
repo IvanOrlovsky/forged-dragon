@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import LightModeIcon from "../../public/icons/LightModeIcon.svg";
 import DarkModeIcon from "../../public/icons/DarkModeIcon.svg";
 import Logo from "../../public/Logo.svg";
+import Logo1 from "../../public/Logo1.svg";
 
 export default function Header({ className }: { className?: string }) {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Header({ className }: { className?: string }) {
 		>
 			<div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
 				<a href="#" className="text-2xl flex items-center space-x-2">
-					<Logo className="w-8 h-8 " />
+					<Logo1 className="w-8 h-8 " />
 					<span className="flex font-bold">Кованый дракон</span>
 				</a>
 				<div className="hidden lg:flex items-center space-x-6">
