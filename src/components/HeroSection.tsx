@@ -32,13 +32,13 @@ export default function HeroSection() {
 				<div className="flex flex-col sm:flex-row gap-2 w-fit mt-6 sm:mt-8">
 					<a
 						href="#contacts"
-						className="text-center font-bold px-6 py-3 sm:px-8 sm:py-4 bg-light-accent dark:bg-dark-accent hover:bg-light-accent/60 dark:hover:bg-dark-accent/60 text-light-text dark:text-dark-text shadow-lg transition-colors duration-300"
+						className="font-bold px-6 py-3 sm:px-8 sm:py-4 bg-light-accent dark:bg-dark-accent hover:bg-light-accent/60 dark:hover:bg-dark-accent/60 text-light-text dark:text-dark-text shadow-lg transition-colors duration-300"
 					>
 						Оставить заявку
 					</a>
 					<a
 						href="#our-works"
-						className="text-center px-6 py-3 sm:px-8 sm:py-4 bg-light-accent dark:bg-dark-accent hover:bg-light-accent/60 dark:hover:bg-dark-accent/60 text-light-text dark:text-dark-text font-semibold  shadow-lg transition-colors duration-300"
+						className="text-center px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-4 border-light-accent dark:border-dark-accent hover:bg-light-accent/60 dark:hover:bg-dark-accent/60 text-light-accent dark:text-dark-accent font-semibold  shadow-lg transition-colors duration-300"
 					>
 						Наши работы
 					</a>
