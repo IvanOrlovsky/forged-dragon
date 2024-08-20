@@ -67,7 +67,7 @@ const WorkStages = () => {
 							<h3 className="text-xl text-center font-semibold text-gray-800">
 								{stage.title}
 							</h3>
-							<p className="mt-4 text-gray-600 text-center">
+							<p className="mt-4 text-gray-600 text-justify">
 								{stage.description}
 							</p>
 						</div>

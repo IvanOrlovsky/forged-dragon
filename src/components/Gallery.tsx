@@ -51,8 +51,8 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 							<Image
 								src={item.original.replaceAll(/\\/g, "/")}
 								alt={item.original}
-								width={10000}
-								height={10000}
+								width={400}
+								height={400}
 								className="w-full h-[300px] sm:h-[500px] object-contain"
 							/>
 						</div>

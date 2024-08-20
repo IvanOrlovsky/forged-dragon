@@ -13,6 +13,7 @@ export default function Header({ className }: { className?: string }) {
 	};
 
 	const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
+	const phoneNumberText = process.env.NEXT_PUBLIC_PHONE_NUMBER_TEXT;
 	const email = process.env.NEXT_PUBLIC_EMAIL;
 
 	return (
@@ -61,7 +62,7 @@ export default function Header({ className }: { className?: string }) {
 							href={`tel:${phoneNumber}`}
 							className="font-extrabold hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 						>
-							{phoneNumber}
+							{phoneNumberText}
 						</a>
 					</div>
 					<ToggleThemeButton />
@@ -122,7 +123,7 @@ export default function Header({ className }: { className?: string }) {
 							href={`tel:${phoneNumber}`}
 							className="font-bold hover:text-light-accent dark:hover:text-dark-accenttransition-colors duration-200"
 						>
-							Позвоните сейчас: {phoneNumber}
+							Позвоните сейчас: {phoneNumberText}
 						</a>
 						{email && (
 							<a
