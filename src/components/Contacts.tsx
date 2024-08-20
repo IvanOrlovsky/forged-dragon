@@ -1,7 +1,4 @@
 import ClientForm from "./ClientForm";
-import Telegram from "../../public/icons/Telegram.svg";
-import WhatsApp from "../../public/icons/WhatsApp.svg";
-import Phone from "../../public/icons/Phone.svg";
 
 export default function Contacts() {
 	return (
@@ -29,49 +26,5 @@ export default function Contacts() {
 				</div> */}
 			</section>
 		</>
-	);
-}
-
-function Social() {
-	return (
-		<div className="flex flex-row gap-3 items-center w-full">
-			<TelegramLink />
-			<WhatsAppLink />
-			<PhoneLink />
-		</div>
-	);
-}
-function TelegramLink() {
-	return (
-		<a
-			href="https://t.me/drillisawesome"
-			target="_blank"
-			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#2AABEE] hover:bg-[#229ED9] text-white"
-		>
-			<Telegram className="w-6 h-6 xl:w-8 xl:h-8" />
-		</a>
-	);
-}
-
-function WhatsAppLink() {
-	return (
-		<a
-			href="https://wa.me/79158952780"
-			target="_blank"
-			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#25d366] hover:bg-[#075e54] text-white"
-		>
-			<WhatsApp className="w-6 h-6 xl:w-8 xl:h-8" />
-		</a>
-	);
-}
-
-function PhoneLink() {
-	return (
-		<a
-			href="tel: +7 (915) 895-27-80"
-			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-slate-400 hover:bg-[#075e54] text-white"
-		>
-			<Phone className="w-6 h-6 xl:w-8 xl:h-8" />
-		</a>
 	);
 }

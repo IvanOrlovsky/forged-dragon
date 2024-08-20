@@ -8,6 +8,7 @@ import Gallery from "@/components/Gallery";
 import Contacts from "@/components/Contacts";
 import About from "@/components/About";
 import WorkStages from "@/components/WorkStages";
+import Footer from "@/components/Footer";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const categoryDir = path.join(process.cwd(), "public", "category");
@@ -58,6 +59,7 @@ export default function Home({
 			<div className=" w-full ">
 				<YandexMap />
 			</div>
+			<Footer />
 		</main>
 	);
 }

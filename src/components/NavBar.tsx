@@ -28,7 +28,7 @@ export default function Header({ className }: { className?: string }) {
 						href="#"
 						className="text-2xl flex items-center space-x-2"
 					>
-						<Logo1 className="w-8 h-8" />
+						<Logo1 className="w-8 h-8 sm:w-12 sm:h-12" />
 						<span className="flex font-bold">Кованый дракон</span>
 					</a>
 					<div className="hidden lg:flex items-center space-x-6">
@@ -62,6 +62,7 @@ export default function Header({ className }: { className?: string }) {
 						>
 							Контакты
 						</a>
+
 						<ToggleThemeButton />
 					</div>
 					<div className="lg:hidden flex flex-row gap-2 items-center">
