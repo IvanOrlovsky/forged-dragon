@@ -21,7 +21,7 @@ export default function Header({ className }: { className?: string }) {
 		>
 			<div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
 				<a href="#" className="text-2xl flex items-center space-x-2">
-					<Logo1 className="w-8 h-8 " />
+					<Logo1 className="w-8 h-8" />
 					<span className="flex font-bold">Кованый дракон</span>
 				</a>
 				<div className="hidden lg:flex items-center space-x-6">
