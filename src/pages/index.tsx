@@ -40,7 +40,7 @@ export default function Home({
 		<main className="relative min-h-screen w-full space-y-12 bg-light-text dark:bg-dark-text">
 			<NavBar />
 			<HeroSection />
-			<section id="our-works" className="py-12">
+			<section id="our-works">
 				<h2 className="pt-6 pl-4 sm:pl-8 text-light-accent dark:text-dark-accent text-4xl sm:text-6xl font-bold mb-8">
 					Наши работы
 				</h2>
