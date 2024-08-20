@@ -59,7 +59,7 @@ const WorkStages = () => {
 					{stages.map((stage) => (
 						<div
 							key={stage.id}
-							className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg"
+							className="flex flex-col items-center p-6 bg-white shadow-lg"
 						>
 							<div className="text-4xl text-indigo-500 mb-4">
 								{stage.icon}

@@ -14,7 +14,7 @@ export default function About() {
 							alt="Изображение мастера за ковкой"
 							width={1000}
 							height={800}
-							className="object-cover w-full h-72 lg:h-auto rounded-lg shadow-lg"
+							className="object-cover w-full h-72 lg:h-auto shadow-lg"
 						/>
 					</div>
 					<div className="lg:w-3/5 dark:text-light-text text-dark-text font-medium">
@@ -44,7 +44,7 @@ export default function About() {
 							alt="Изображение холодного цеха"
 							width={1000}
 							height={800}
-							className="object-cover w-full h-72 lg:h-auto rounded-lg shadow-lg"
+							className="object-cover w-full h-72 lg:h-auto shadow-lg"
 						/>
 					</div>
 					<div className="lg:w-3/5 dark:text-light-text text-dark-text font-medium">
@@ -66,7 +66,7 @@ export default function About() {
 							alt="Изображение горячего цеха"
 							width={1000}
 							height={800}
-							className="object-cover w-full h-72 lg:h-auto rounded-lg shadow-lg"
+							className="object-cover w-full h-72 lg:h-auto shadow-lg"
 						/>
 					</div>
 					<div className="lg:w-3/5 dark:text-light-text text-dark-text font-medium">

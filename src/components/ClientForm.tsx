@@ -103,7 +103,7 @@ const ClientForm = () => {
 						value={formData.name}
 						onChange={handleChange}
 						required
-						className="p-2 border-2 border-light-accent dark:border-dark-accent rounded-md"
+						className="p-2 border-2 border-light-accent dark:border-dark-accent"
 					/>
 				</div>
 				<div className="flex flex-col">
@@ -119,7 +119,7 @@ const ClientForm = () => {
 						mask="+7 (999) 999-99-99"
 						value={formData.phoneNumber}
 						onChange={handleChange}
-						className="p-2 border-2 border-light-accent dark:border-dark-accent rounded-md"
+						className="p-2 border-2 border-light-accent dark:border-dark-accent"
 						required
 					/>
 				</div>
@@ -136,7 +136,7 @@ const ClientForm = () => {
 						value={formData.message}
 						onChange={handleChange}
 						required
-						className="p-2 border-2 border-light-accent dark:border-dark-accent rounded-md"
+						className="p-2 border-2 border-light-accent dark:border-dark-accent "
 					/>
 				</div>
 
@@ -147,7 +147,7 @@ const ClientForm = () => {
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					className="px-2 py-3 bg-light-text dark:bg-dark-text dark:text-light-text text-dark-text rounded-md transition-opacity duration-300 disabled:opacity-50"
+					className="px-2 py-3 bg-light-text dark:bg-dark-text dark:text-light-text text-dark-text transition-opacity duration-300 disabled:opacity-50"
 				>
 					{isSubmitting ? "Отправка..." : "Отправить"}
 				</button>

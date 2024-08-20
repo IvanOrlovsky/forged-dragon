@@ -48,9 +48,25 @@ export default function Home({
 			</section>
 			<About />
 			<WorkStages />
-			<div className="bg-light-accent dark:bg-dark-accent p-5 sm:p-10 rounded-lg shadow-lg">
+			<div className="bg-light-accent dark:bg-dark-accent pt-5 sm:pt-10 shadow-lg">
 				<Contacts />
 			</div>
+			<div className=" w-full ">
+				<YandexMap />
+			</div>
 		</main>
+	);
+}
+
+function YandexMap() {
+	return (
+		<div className="relative w-full h-72 xl:h-96 overflow-hidden">
+			<iframe
+				src="https://yandex.ru/map-widget/v1/org/zhelezny_drakon/122849766947/reviews/?ll=36.626416%2C55.090318&z=16"
+				className="absolute top-0 left-0 w-full h-full border-none"
+				allowFullScreen
+				loading="lazy"
+			></iframe>
+		</div>
 	);
 }

@@ -3,7 +3,7 @@ import Telegram from "../../public/icons/Telegram.svg";
 import WhatsApp from "../../public/icons/WhatsApp.svg";
 import Phone from "../../public/icons/Phone.svg";
 
-export default function Contacts() {
+export default function Contacts1() {
 	return (
 		<>
 			<section
@@ -23,11 +23,26 @@ export default function Contacts() {
 						<ClientForm />
 					</div>
 				</div>
-				{/* <div className="flex flex-row gap-5 w-full xl:w-1/2">
-					
-				</div> */}
+				<div className="flex flex-row gap-5 w-full xl:w-1/2">
+					<div className=" w-full ">
+						<YandexMap />
+					</div>
+				</div>
 			</section>
 		</>
+	);
+}
+
+function YandexMap() {
+	return (
+		<div className="relative w-full h-72 xl:h-96 rounded-lg overflow-hidden">
+			<iframe
+				src="https://yandex.ru/map-widget/v1/org/zhelezny_drakon/122849766947/reviews/?ll=36.626416%2C55.090318&z=16"
+				className="absolute top-0 left-0 w-full h-full border-none"
+				allowFullScreen
+				loading="lazy"
+			></iframe>
+		</div>
 	);
 }
 
@@ -45,7 +60,7 @@ function TelegramLink() {
 		<a
 			href="https://t.me/drillisawesome"
 			target="_blank"
-			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#2AABEE] hover:bg-[#229ED9] text-white"
+			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#2AABEE] hover:bg-[#229ED9] rounded-lg text-white"
 		>
 			<Telegram className="w-6 h-6 xl:w-8 xl:h-8" />
 		</a>
@@ -57,7 +72,7 @@ function WhatsAppLink() {
 		<a
 			href="https://wa.me/79158952780"
 			target="_blank"
-			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#25d366] hover:bg-[#075e54] text-white"
+			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-[#25d366] hover:bg-[#075e54] rounded-lg text-white"
 		>
 			<WhatsApp className="w-6 h-6 xl:w-8 xl:h-8" />
 		</a>
@@ -68,7 +83,7 @@ function PhoneLink() {
 	return (
 		<a
 			href="tel: +7 (915) 895-27-80"
-			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-slate-400 hover:bg-[#075e54] text-white"
+			className="flex items-center gap-2 p-2 text-lg xl:text-xl font-semibold bg-slate-400 hover:bg-[#075e54] rounded-lg text-white"
 		>
 			<Phone className="w-6 h-6 xl:w-8 xl:h-8" />
 		</a>

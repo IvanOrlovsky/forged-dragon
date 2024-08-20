@@ -36,6 +36,7 @@ const config: Config = {
 			},
 			fontFamily: {
 				garamond: ["EB Garamond", "serif"],
+				mulish: ["Mulish", "sans-serif"],
 			},
 			animation: {
 				scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
