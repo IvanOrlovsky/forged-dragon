@@ -1,4 +1,5 @@
 import { ContentType } from "@/types/ContentType";
+import Image from "next/image";
 import { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -40,15 +41,18 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 					renderItem={(item) => (
 						<div className="relative flex justify-center">
 							{/* Блюр-фон для изображения */}
-							<img
-								src={item.original}
+							<Image
+								src={item.original.replaceAll(/\\/g, "/")}
 								alt={item.original}
+								fill
 								className="absolute blur-xl -z-10 h-[300px] sm:h-[500px] w-full object-cover"
 							/>
 							{/* Основное изображение */}
-							<img
-								src={item.original}
+							<Image
+								src={item.original.replaceAll(/\\/g, "/")}
 								alt={item.original}
+								width={10000}
+								height={10000}
 								className="w-full h-[300px] sm:h-[500px] object-contain"
 							/>
 						</div>
