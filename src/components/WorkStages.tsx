@@ -44,7 +44,7 @@ const WorkStages = () => {
 	];
 
 	return (
-		<section className="py-12" id="work-stages">
+		<section id="work-stages">
 			<div className=" px-4 sm:px-6 lg:px-8">
 				<div className="mb-12">
 					<h2 className="text-light-accent dark:text-dark-accent text-4xl xl:text-6xl font-bold mb-8 h-full">
