@@ -41,16 +41,11 @@ export default function Home({
 		<main className="relative min-h-screen w-full bg-light-text dark:bg-dark-text">
 			<NavBar />
 			<HeroSection />
-			<section id="our-works">
-				<h2 className="pt-6 pl-4 sm:pl-8 text-light-accent dark:text-dark-accent text-4xl sm:text-6xl font-bold mb-8">
-					Наши работы
-				</h2>
-				<Gallery tabs={tabs} imagesByTab={imagesByTab} />
-			</section>
-			<div className="my-12">
+			<div className="mb-12">
 				<About />
 			</div>
-			<div className="mb-12">
+			<Gallery tabs={tabs} imagesByTab={imagesByTab} />
+			<div className="my-12">
 				<WorkStages />
 			</div>
 			<div className="bg-light-accent dark:bg-dark-accent pt-5 sm:pt-10 shadow-lg">
