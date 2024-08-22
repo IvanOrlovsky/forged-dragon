@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
 	return (
-		<div className="relative h-[70vh] sm:h-[80vh] mt-16">
+		<div className="relative h-[70vh] sm:h-[80vh] mt-24	">
 			{/* Gradient Overlay */}
 			<div className="absolute inset-0 z-40 pointer-events-none">
 				<div className="h-full bg-gradient-to-r from-black/80 to-transparent  transition-colors duration-300"></div>

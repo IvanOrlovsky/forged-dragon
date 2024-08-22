@@ -27,21 +27,34 @@ export default function Footer() {
 					<h3 className="text-2xl font-bold mb-4">Контакты</h3>
 					<ul className="space-y-4">
 						<li className="flex items-start">
-							<div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-600">
+							<a
+								className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-600"
+								href={process.env.NEXT_PUBLIC_LOCATION_HREF}
+								target="_blank"
+							>
 								<Location className="w-6 h-6 text-white" />
-							</div>
+							</a>
 							<div className="ml-4">
 								<h4 className="text-lg font-bold">
 									Мы находимся по адресу:
 								</h4>
-								<span>Московская улица, 53А</span>
+								<a
+									href={process.env.NEXT_PUBLIC_LOCATION_HREF}
+									className="hover:underline"
+									target="_blank"
+								>
+									{process.env.NEXT_PUBLIC_LOCATION_TEXT}
+								</a>
 							</div>
 						</li>
 
 						<li className="flex items-start">
-							<div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-600">
+							<a
+								className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-600"
+								href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+							>
 								<Phone className="w-6 h-6 text-white" />
-							</div>
+							</a>
 							<div className="ml-4">
 								<h4 className="text-lg font-bold">
 									Позвоните нам:
@@ -56,15 +69,18 @@ export default function Footer() {
 						</li>
 
 						<li className="flex items-start">
-							<div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-600">
+							<a
+								className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-600"
+								href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
+							>
 								<Mail className="w-6 h-6 text-white" />
-							</div>
+							</a>
 							<div className="ml-4">
 								<h4 className="text-lg font-bold">
 									Напишите нам:
 								</h4>
 								<a
-									href="mailto:info@yourcompany.com"
+									href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
 									className="hover:underline"
 								>
 									{process.env.NEXT_PUBLIC_EMAIL}

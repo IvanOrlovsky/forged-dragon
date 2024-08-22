@@ -20,15 +20,15 @@ export default function Contacts() {
 						</h2>
 
 						{/* Телефон */}
-						<div className="flex items-center gap-4">
+						<a
+							className="flex items-center gap-4"
+							href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+						>
 							<Phone className="w-12 h-12 text-dark-text" />
-							<a
-								href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
-								className="text-xl lg:text-2xl font-semibold text-dark-text hover:underline"
-							>
+							<span className="text-xl lg:text-2xl font-semibold text-dark-text hover:underline">
 								{process.env.NEXT_PUBLIC_PHONE_NUMBER_TEXT}
-							</a>
-						</div>
+							</span>
+						</a>
 
 						{/* Локация */}
 						<div className="flex items-start gap-4">
