@@ -47,10 +47,10 @@ const WorkStages = () => {
 		<section id="work-stages">
 			<div className=" px-4 sm:px-6 lg:px-8">
 				<div className="mb-12">
-					<h2 className="text-light-accent dark:text-dark-accent text-4xl xl:text-6xl font-bold mb-8 h-full">
+					<h2 className="text-accent  text-4xl xl:text-6xl font-bold mb-8 h-full">
 						Этапы работы
 					</h2>
-					<p className="text-center text-md lg:text-xl leading-relaxed mb-4  dark:text-light-text text-dark-text font-medium">
+					<p className="text-center text-md lg:text-xl leading-relaxed mb-4 text-light-text font-medium">
 						Мы предлагаем полный цикл услуг от первой консультации
 						до установки готового изделия. Узнайте, как мы работаем!
 					</p>

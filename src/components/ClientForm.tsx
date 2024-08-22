@@ -92,7 +92,7 @@ const ClientForm = () => {
 				<div className="flex flex-col">
 					<label
 						htmlFor="name"
-						className="text-light-text dark:text-dark-text text-md sm:text-xl"
+						className="text-dark-text text-md sm:text-xl"
 					>
 						Имя:
 					</label>
@@ -103,13 +103,13 @@ const ClientForm = () => {
 						value={formData.name}
 						onChange={handleChange}
 						required
-						className="p-2 border-2 border-light-accent dark:border-dark-accent"
+						className="p-2 border-2 border-accent"
 					/>
 				</div>
 				<div className="flex flex-col">
 					<label
 						htmlFor="phoneNumber"
-						className="text-light-text dark:text-dark-text text-md sm:text-xl"
+						className="text-dark-text text-md sm:text-xl"
 					>
 						Номер телефона:
 					</label>
@@ -119,14 +119,14 @@ const ClientForm = () => {
 						mask="+7 (999) 999-99-99"
 						value={formData.phoneNumber}
 						onChange={handleChange}
-						className="p-2 border-2 border-light-accent dark:border-dark-accent"
+						className="p-2 border-2 border-accent"
 						required
 					/>
 				</div>
 				<div className="flex flex-col">
 					<label
 						htmlFor="message"
-						className="text-light-text dark:text-dark-text text-md sm:text-xl"
+						className="text-dark-text text-md sm:text-xl"
 					>
 						Комментарий к заявке:
 					</label>
@@ -136,7 +136,7 @@ const ClientForm = () => {
 						value={formData.message}
 						onChange={handleChange}
 						required
-						className="p-2 border-2 border-light-accent dark:border-dark-accent "
+						className="p-2 border-2 border-accent "
 					/>
 				</div>
 
@@ -147,7 +147,7 @@ const ClientForm = () => {
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					className="px-2 py-3 bg-light-text dark:bg-dark-text dark:text-light-text text-dark-text transition-opacity duration-300 disabled:opacity-50"
+					className="px-2 py-3 bg-dark-text text-light-text  transition-opacity duration-300 disabled:opacity-50"
 				>
 					{isSubmitting ? "Отправка..." : "Отправить"}
 				</button>

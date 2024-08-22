@@ -9,19 +9,19 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 
 	return (
 		<section id="our-works">
-			<h2 className="pt-6 pl-4 sm:pl-8 text-light-accent dark:text-dark-accent text-4xl sm:text-6xl font-bold mb-8">
+			<h2 className="pt-6 pl-4 sm:pl-8 text-accent  text-4xl sm:text-6xl font-bold mb-8">
 				Наши работы
 			</h2>
 			<div className="flex flex-col">
-				<ul className="border-2 sm:border-4 border-light-accent dark:border-dark-accent bg-transparent p-1 sm:p-2 w-fit self-center flex flex-wrap justify-center sm:gap-3 text-sm sm:text-xl font-medium text-center dark:text-light-text text-dark-text">
+				<ul className="border-2 sm:border-4 border-accent bg-transparent p-1 sm:p-2 w-fit self-center flex flex-wrap justify-center sm:gap-3 text-sm sm:text-xl font-medium text-center text-light-text ">
 					{tabs.map((tab) => (
 						<li key={tab}>
 							<button
 								onClick={() => setActiveTab(tab)}
 								className={`inline-block px-4 py-3 transition-colors duration-300 ${
 									activeTab === tab
-										? "bg-light-accent dark:bg-dark-accent text-light-text dark:text-dark-text"
-										: "hover:bg-light-primary dark:hover:bg-dark-primary hover:text-light-subtext dark:hover:text-dark-subtext"
+										? "bg-accent text-dark-text"
+										: "hover:bg-primary hover:text-subtext"
 								}`}
 							>
 								{tab}

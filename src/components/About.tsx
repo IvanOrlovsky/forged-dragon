@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function About() {
 	return (
 		<section id="about" className="py-12 px-4 sm:px-8">
-			<h2 className="text-light-accent dark:text-dark-accent text-4xl sm:text-6xl font-bold mb-12">
+			<h2 className="text-accent text-4xl sm:text-6xl font-bold mb-12">
 				О мастерской
 			</h2>
 			<div className="flex flex-col lg:flex-row gap-12">
@@ -15,7 +15,7 @@ export default function About() {
 						height={800}
 						className="object-cover w-full h-72"
 					/>
-					<div className="text-md lg:text-lg leading-relaxed dark:text-light-text text-dark-text font-medium p-8">
+					<div className="text-md lg:text-lg leading-relaxed text-light-text  font-medium p-8">
 						<p>
 							Мы с гордостью представляем наш опыт и знания в
 							области художественной ковки, которые мы развиваем
@@ -40,7 +40,7 @@ export default function About() {
 						height={800}
 						className="object-cover w-full h-72  "
 					/>
-					<p className="text-md lg:text-lg leading-relaxed dark:text-light-text text-dark-text font-medium p-8">
+					<p className="text-md lg:text-lg leading-relaxed text-light-text  font-medium p-8">
 						В <strong>холодном цехе</strong> мы производим кованые
 						изделия без нагрева металла. Используя современные
 						станки и инструменты, мы создаем изделия, которые
@@ -57,7 +57,7 @@ export default function About() {
 						height={800}
 						className="object-cover w-full h-72  "
 					/>
-					<p className="text-md lg:text-lg leading-relaxed dark:text-light-text text-dark-text font-medium p-8">
+					<p className="text-md lg:text-lg leading-relaxed text-light-text  font-medium p-8">
 						В <strong>горячем цехе</strong> происходит магия
 						превращения металла в искусство. Здесь мы используем
 						специальные печи и молоты для нагрева и обработки

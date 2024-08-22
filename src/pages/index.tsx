@@ -38,7 +38,7 @@ export default function Home({
 	imagesByTab,
 }: InferGetStaticPropsType<GetStaticProps<ContentType>>) {
 	return (
-		<main className="relative min-h-screen w-full bg-light-text dark:bg-dark-text">
+		<main className="relative min-h-screen w-full bg-dark-text">
 			<NavBar />
 			<HeroSection />
 			<div className="mb-12">
@@ -48,7 +48,7 @@ export default function Home({
 			<div className="my-12">
 				<WorkStages />
 			</div>
-			<div className="bg-light-accent dark:bg-dark-accent pt-5 sm:pt-10 shadow-lg">
+			<div className="bg-accent pt-5 sm:pt-10 shadow-lg">
 				<Contacts />
 			</div>
 			<div className=" w-full ">

@@ -6,15 +6,11 @@
 
 @layer base {
 	:root {
-		--color-primary-light: 204 204 204; /* Основной фон страницы для светлой темы */
-		--color-accent-light: 255 0 46; /* Акцентный цвет для светлой темы */
-		--color-text-light: 224 224 224; /* Основной текст для светлой темы */
-		--color-sub-text-light: 117 117 117; /* Дополнительный текст для светлой темы */
-
-		--color-primary-dark: 18 18 18; /* Основной фон страницы для темной темы */
-		--color-accent-dark: 243 183 31; /* Акцентный цвет для темной темы */
-		--color-text-dark: 51 51 51; /* Основной текст для темной темы */
-		--color-sub-text-dark: 189 189 189; /* Дополнительный текст для темной темы */
+		--color-text-light: 224 224 224;
+		--color-primary-dark: 18 18 18;
+		--color-accent-dark: 243 183 31;
+		--color-text-dark: 51 51 51;
+		--color-sub-text-dark: 189 189 189;
 	}
 }
 :root {

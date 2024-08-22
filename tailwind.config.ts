@@ -21,18 +21,11 @@ const config: Config = {
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 			colors: {
-				light: {
-					primary: "rgb(var(--color-primary-light))",
-					accent: "rgb(var(--color-accent-light))",
-					text: "rgb(var(--color-text-light))",
-					subtext: "rgb(var(--color-sub-text-light))",
-				},
-				dark: {
-					primary: "rgb(var(--color-primary-dark))",
-					accent: "rgb(var(--color-accent-dark))",
-					text: "rgb(var(--color-text-dark))",
-					subtext: "rgb(var(--color-sub-text-dark))",
-				},
+				primary: "rgb(var(--color-primary-dark))",
+				accent: "rgb(var(--color-accent-dark))",
+				"light-text": "rgb(var(--color-text-light))",
+				"dark-text": "rgb(var(--color-text-dark))",
+				subtext: "rgb(var(--color-sub-text-dark))",
 			},
 			fontFamily: {
 				mulish: ["Mulish", "sans-serif"],
@@ -50,7 +43,6 @@ const config: Config = {
 		},
 	},
 	plugins: [addVariablesForColors],
-	darkMode: "class",
 	important: true,
 };
 export default config;
