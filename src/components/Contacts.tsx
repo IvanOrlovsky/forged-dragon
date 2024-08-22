@@ -7,89 +7,114 @@ import Location from "../../public/icons/Location.svg";
 
 export default function Contacts() {
 	return (
-		<>
-			<section id="contacts" className="pb-6 sm:pb-10">
-				<h2 className="pl-4 sm:pl-8 text-light-text dark:text-dark-text text-4xl sm:text-6xl font-bold">
-					Свяжитесь с нами
-				</h2>
-				<div className="flex flex-col xl:flex-row p-4 xl:p-8">
-					<div className="self-center flex flex-col gap-2 xl:w-1/2 ">
-						<div>
-							<h3 className="text-2xl xl:text-3xl text-light-text dark:text-dark-text font-bold mb-5">
+		<section
+			id="contacts"
+			className="py-12 bg-light-accent dark:bg-dark-accent"
+		>
+			<div className="container mx-auto px-6">
+				<div className="flex flex-col lg:flex-row gap-12">
+					{/* Контактные данные */}
+					<div className="flex flex-col gap-8 lg:w-1/2">
+						<h2 className="text-3xl lg:text-5xl font-bold text-light-text dark:text-dark-text">
+							Свяжитесь с нами
+						</h2>
+
+						{/* Телефон */}
+						<div className="flex items-center gap-4">
+							<Phone className="w-12 h-12 text-light-text dark:text-dark-text" />
+							<a
+								href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+								className="text-xl lg:text-2xl font-semibold text-light-text dark:text-dark-text hover:underline"
+							>
+								{process.env.NEXT_PUBLIC_PHONE_NUMBER_TEXT}
+							</a>
+						</div>
+
+						{/* Локация */}
+						<div className="flex items-start gap-4">
+							<a
+								href={`https://yandex.ru/maps/-/CDgxyKoj`}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800"
+							>
+								<Location className="w-8 h-8 text-gray-700 dark:text-gray-200" />
+							</a>
+							<div>
+								<h4 className="text-lg font-semibold text-light-text dark:text-dark-text">
+									Мы находимся по адресу
+								</h4>
+								<a
+									href={`https://yandex.ru/maps/-/CDgxyKoj`}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-md text-light-text dark:text-dark-text hover:underline"
+								>
+									Московская улица, 53А
+								</a>
+							</div>
+						</div>
+
+						{/* Почта */}
+						<div className="flex items-start gap-4">
+							<a
+								href="mailto:info@yourcompany.com"
+								className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800"
+							>
+								<Mail className="w-8 h-8 text-gray-700 dark:text-gray-200" />
+							</a>
+							<div>
+								<h4 className="text-lg font-semibold text-light-text dark:text-dark-text">
+									Напишите нам
+								</h4>
+								<a
+									href="mailto:info@yourcompany.com"
+									className="text-md text-light-text dark:text-dark-text hover:underline"
+								>
+									{process.env.NEXT_PUBLIC_EMAIL}
+								</a>
+							</div>
+						</div>
+
+						{/* Социальные сети */}
+						<div className="mt-8">
+							<h3 className="text-2xl font-bold text-light-text dark:text-dark-text mb-4">
 								Мы в социальных сетях:
 							</h3>
-							<ul className="space-y-4">
-								<li className="flex items-center">
-									<Telegram className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
+							<ul className="flex space-x-4">
+								<li>
 									<a
 										href={`https://t.me/${process.env.NEXT_PUBLIC_TELEGRAM}`}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-light-text dark:text-dark-text text-xl sm:text-2xl"
+										className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800"
 									>
-										Telegram
+										<Telegram className="w-6 h-6 text-gray-700 dark:text-gray-200" />
 									</a>
 								</li>
-								<li className="flex items-center">
-									<WhatsApp className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
+								<li>
 									<a
 										href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP}`}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-light-text dark:text-dark-text text-xl sm:text-2xl"
+										className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800"
 									>
-										WhatsApp
+										<WhatsApp className="w-6 h-6 text-gray-700 dark:text-gray-200" />
 									</a>
-								</li>
-							</ul>
-						</div>
-						<div className="mt-8">
-							<h3 className="text-2xl xl:text-3xl text-light-text dark:text-dark-text font-bold mb-5">
-								Контакты:
-							</h3>
-							<ul className="space-y-4">
-								<li className="flex items-center">
-									<Phone className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
-									<a
-										href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
-										className="text-black text-xl sm:text-2xl font-bold hover:underline"
-									>
-										{
-											process.env
-												.NEXT_PUBLIC_PHONE_NUMBER_TEXT
-										}
-									</a>
-								</li>
-								<li className="flex items-center">
-									<Mail className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
-									<a
-										href="mailto:info@yourcompany.com"
-										className="text-light-text dark:text-dark-text text-xl sm:text-2xl hover:underline"
-									>
-										{process.env.NEXT_PUBLIC_EMAIL}
-									</a>
-								</li>
-								<li className="flex items-center">
-									<Location className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
-									<span className="text-light-text dark:text-dark-text text-xl sm:text-2xl hover:underline">
-										Московская улица, 53А
-									</span>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<div className="hidden xl:block xl:w-[8px] bg-dark-text mx-8"></div>
-					<div className="block xl:hidden h-[8px] bg-dark-text my-8"></div>
-					<div className="flex flex-col w-full xl:w-1/2 xl:pr-10">
-						<div>
-							<h2 className="text-center text-2xl xl:text-3xl text-light-text dark:text-dark-text font-bold mb-5">
-								Оставьте заявку:
-							</h2>
-							<ClientForm />
-						</div>
+
+					{/* Форма */}
+					<div className="lg:w-1/2">
+						<h2 className="text-3xl font-bold text-light-text dark:text-dark-text mb-6 text-center">
+							Оставьте заявку
+						</h2>
+						<ClientForm />
 					</div>
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 }

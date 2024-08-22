@@ -1,8 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
-import LightModeIcon from "../../public/icons/LightModeIcon.svg";
-import DarkModeIcon from "../../public/icons/DarkModeIcon.svg";
-import Logo from "../../public/Logo.svg";
+import { useState } from "react";
 import Logo1 from "../../public/Logo1.svg";
 import Location from "../../public/icons/Location.svg";
 
@@ -62,11 +59,8 @@ export default function Header({ className }: { className?: string }) {
 						>
 							Контакты
 						</a>
-
-						<ToggleThemeButton />
 					</div>
 					<div className="lg:hidden flex flex-row gap-2 items-center">
-						<ToggleThemeButton />
 						<button
 							type="button"
 							className="text-3xl focus:outline-none"
@@ -145,6 +139,8 @@ function PretopBar() {
 			<div className="max-w-screen-xl mx-auto flex justify-between items-center px-4">
 				<a
 					href="https://yandex.ru/maps/-/CDgxyKoj"
+					target="_blank"
+					rel="noopener noreferrer"
 					className="hover:underline flex flex-row gap-1 items-center"
 				>
 					<Location className="w-4 h-4" />
@@ -160,57 +156,5 @@ function PretopBar() {
 				</div>
 			</div>
 		</div>
-	);
-}
-
-function ToggleThemeButton() {
-	const [isDarkMode, setIsDarkMode] = useState(false);
-
-	const setTheme = (theme: "light" | "dark") => {
-		if (typeof document !== "undefined") {
-			const root = window.document.documentElement;
-
-			if (theme === "dark") {
-				root.classList.add("dark");
-			} else {
-				root.classList.remove("dark");
-			}
-
-			localStorage.setItem("theme", theme);
-			setIsDarkMode(theme === "dark");
-		}
-	};
-
-	useEffect(() => {
-		if (typeof document !== "undefined") {
-			const savedTheme = localStorage.getItem("theme");
-			if (savedTheme) {
-				setTheme(savedTheme as "light" | "dark");
-			} else {
-				const prefersDark = window.matchMedia(
-					"(prefers-color-scheme: dark)"
-				).matches;
-				setTheme(prefersDark ? "dark" : "light");
-			}
-		}
-	}, []);
-
-	const toggleTheme = () => {
-		setTheme(isDarkMode ? "light" : "dark");
-	};
-
-	return (
-		<button
-			type="button"
-			onClick={toggleTheme}
-			className="p-2 rounded-full focus:outline-none hover:bg-light-subtext dark:hover:bg-dark-subtext transition"
-			aria-label="Toggle theme"
-		>
-			{isDarkMode ? (
-				<LightModeIcon className="w-6 h-6" />
-			) : (
-				<DarkModeIcon className="w-6 h-6" />
-			)}
-		</button>
 	);
 }

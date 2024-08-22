@@ -35,7 +35,6 @@ const config: Config = {
 				},
 			},
 			fontFamily: {
-				garamond: ["EB Garamond", "serif"],
 				mulish: ["Mulish", "sans-serif"],
 			},
 			animation: {
