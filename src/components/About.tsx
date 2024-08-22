@@ -7,7 +7,7 @@ export default function About() {
 				О мастерской
 			</h2>
 			<div className="flex flex-col lg:flex-row gap-12">
-				<div className="flex flex-col bg-[#4d4d52]">
+				<div className="flex flex-col flex-1 bg-[#4d4d52]">
 					<Image
 						src="/main-images/About.jpg"
 						alt="Изображение мастера за ковкой"
@@ -32,7 +32,7 @@ export default function About() {
 						</p>
 					</div>
 				</div>
-				<div className="flex flex-col  bg-[#1b1b1c]">
+				<div className="flex flex-col flex-1 bg-[#1b1b1c]">
 					<Image
 						src="/main-images/Cold.jpg"
 						alt="Изображение холодного цеха"
@@ -49,7 +49,7 @@ export default function About() {
 						детали, обеспечивая точность и высокое качество работы.
 					</p>
 				</div>
-				<div className="flex flex-col bg-[#4d4d52]">
+				<div className="flex flex-col flex-1 bg-[#4d4d52]">
 					<Image
 						src="/main-images/Hot.jpg"
 						alt="Изображение горячего цеха"
