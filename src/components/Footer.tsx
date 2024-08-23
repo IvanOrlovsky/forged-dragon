@@ -12,10 +12,10 @@ export default function Footer() {
 				{/* Логотип и описание */}
 				<div className="flex flex-col sm:w-1/4 mb-8 sm:mb-0">
 					<div className="flex flex-row gap-4 items-center mb-4">
-						<Logo1 className="w-16 h-16" />
-						<p className="text-xl sm:text-2xl">Кованый дракон</p>
+						<Logo1 className="w-12 h-12" />
+						<p className="text-2xl font-bold">Кованый дракон</p>
 					</div>
-					<p className="text-base sm:text-lg">
+					<p className="text-base sm:text-md">
 						Мы предоставляем лучшие услуги для наших клиентов.
 						Свяжитесь с нами для получения дополнительной
 						информации.
