@@ -40,6 +40,7 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 								}) || [{ original: "" }]
 						}
 						showPlayButton={false}
+						lazyLoad
 						showFullscreenButton={false}
 						thumbnailPosition="left"
 						renderItem={(item) => (

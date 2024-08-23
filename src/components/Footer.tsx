@@ -95,28 +95,28 @@ export default function Footer() {
 					<h3 className="text-2xl font-bold mb-4">Навигация</h3>
 					<div className="flex flex-col gap-2">
 						<a
-							href="#our-works"
-							className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
-						>
-							Наши работы
-						</a>
-						<a
-							href="#reviews"
-							className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
-						>
-							Отзывы
-						</a>
-						<a
 							href="#about"
 							className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 						>
 							О мастерской
 						</a>
 						<a
+							href="#our-works"
+							className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						>
+							Наши работы
+						</a>
+						<a
 							href="#work-stages"
 							className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
 						>
 							Этапы работы
+						</a>
+						<a
+							href="#reviews"
+							className="hover:text-light-accent dark:hover:text-dark-accent transition-colors duration-200"
+						>
+							Отзывы
 						</a>
 						<a
 							href="#contacts"

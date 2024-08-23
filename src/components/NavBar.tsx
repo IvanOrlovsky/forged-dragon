@@ -30,28 +30,28 @@ export default function Header({ className }: { className?: string }) {
 					</a>
 					<div className="hidden lg:flex items-center space-x-6">
 						<a
-							href="#our-works"
-							className="hover:text-accent  transition-colors duration-200"
-						>
-							Наши работы
-						</a>
-						<a
-							href="#reviews"
-							className="hover:text-accent  transition-colors duration-200"
-						>
-							Отзывы
-						</a>
-						<a
 							href="#about"
 							className="hover:text-accent  transition-colors duration-200"
 						>
 							О мастерской
 						</a>
 						<a
+							href="#our-works"
+							className="hover:text-accent  transition-colors duration-200"
+						>
+							Наши работы
+						</a>
+						<a
 							href="#work-stages"
 							className="hover:text-accent  transition-colors duration-200"
 						>
 							Этапы работы
+						</a>
+						<a
+							href="#reviews"
+							className="hover:text-accent  transition-colors duration-200"
+						>
+							Отзывы
 						</a>
 						<a
 							href="#contacts"
@@ -73,20 +73,6 @@ export default function Header({ className }: { className?: string }) {
 				{menuOpen && (
 					<div className="lg:hidden flex flex-col items-center space-y-4 p-5 bg-primary bg-opacity-80 backdrop-blur-lg transition-colors duration-300 ease-in-out">
 						<a
-							href="#our-works"
-							className="hover:text-accent  transition-colors duration-200"
-							onClick={() => setMenuOpen(false)}
-						>
-							Наши работы
-						</a>
-						<a
-							href="#reviews"
-							className="hover:text-accent  transition-colors duration-200"
-							onClick={() => setMenuOpen(false)}
-						>
-							Отзывы
-						</a>
-						<a
 							href="#about"
 							className="hover:text-accent transition-colors duration-200"
 							onClick={() => setMenuOpen(false)}
@@ -94,11 +80,25 @@ export default function Header({ className }: { className?: string }) {
 							О компании
 						</a>
 						<a
+							href="#our-works"
+							className="hover:text-accent  transition-colors duration-200"
+							onClick={() => setMenuOpen(false)}
+						>
+							Наши работы
+						</a>
+						<a
 							href="#work-stages"
 							className="hover:text-accent ent transition-colors duration-200"
 							onClick={() => setMenuOpen(false)}
 						>
 							Этапы работы
+						</a>
+						<a
+							href="#reviews"
+							className="hover:text-accent  transition-colors duration-200"
+							onClick={() => setMenuOpen(false)}
+						>
+							Отзывы
 						</a>
 						<a
 							href="#contacts"
