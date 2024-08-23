@@ -15,7 +15,7 @@ export default function Contacts() {
 				<div className="flex flex-col lg:flex-row gap-12">
 					{/* Контактные данные */}
 					<div className="flex flex-col gap-8 lg:w-1/2 ">
-						<h2 className="text-3xl lg:text-5xl font-bold text-dark-text">
+						<h2 className="text-4xl lg:text-5xl font-bold text-dark-text">
 							Свяжитесь с нами
 						</h2>
 

@@ -9,6 +9,7 @@ import Contacts from "@/components/Contacts";
 import About from "@/components/About";
 import WorkStages from "@/components/WorkStages";
 import Footer from "@/components/Footer";
+import Reviews from "@/components/Reviews";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const categoryDir = path.join(process.cwd(), "public", "category");
@@ -47,6 +48,9 @@ export default function Home({
 			<Gallery tabs={tabs} imagesByTab={imagesByTab} />
 			<div className="my-12">
 				<WorkStages />
+			</div>
+			<div className="mb-12">
+				<Reviews />
 			</div>
 			<div className="bg-accent pt-5 sm:pt-10 shadow-lg">
 				<Contacts />
