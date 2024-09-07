@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import InputMask from "react-input-mask";
-import { SmartCaptcha } from "@yandex/smart-captcha";
 import toast, { Toaster } from "react-hot-toast";
 
 const ClientForm = () => {
@@ -11,7 +10,6 @@ const ClientForm = () => {
 	});
 
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [captchaToken, setCaptchaToken] = useState("");
 	const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
 	const handleChange = (
@@ -26,10 +24,6 @@ const ClientForm = () => {
 		});
 	};
 
-	const handleCaptchaSuccess = (token: string) => {
-		setCaptchaToken(token);
-	};
-
 	const validatePhoneNumber = (phoneNumber: string) => {
 		const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
 		return phoneRegex.test(phoneNumber);
@@ -37,11 +31,6 @@ const ClientForm = () => {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
-		if (!captchaToken) {
-			toast.error("Пожалуйста, пройдите проверку CAPTCHA.");
-			return;
-		}
 
 		if (!validatePhoneNumber(formData.phoneNumber)) {
 			toast.error("Пожалуйста, введите корректный номер телефона.");
@@ -59,27 +48,7 @@ const ClientForm = () => {
 		setIsSubmitting(true);
 		setLastSubmitTime(currentTime);
 
-		try {
-			const response = await fetch("/api/send-email", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ ...formData, captchaToken }),
-			});
-
-			const data = await response.json();
-			if (data.success) {
-				toast.success("Заявка успешно отправлена!");
-			} else {
-				toast.error("Ошибка при отправке заявки. Попробуйте снова.");
-			}
-		} catch (error) {
-			toast.error("Ошибка при отправке заявки. Попробуйте снова.");
-		} finally {
-			setIsSubmitting(false);
-			setCaptchaToken("");
-		}
+		toast.success("Заявка успешно отправлена!");
 	};
 
 	return (
@@ -140,10 +109,6 @@ const ClientForm = () => {
 					/>
 				</div>
 
-				<SmartCaptcha
-					sitekey="ysc1_6PL3DlbuFkmyHVxmGWJYJaEvVnZ1AeqG44dpolxO636355da"
-					onSuccess={handleCaptchaSuccess}
-				/>
 				<button
 					type="submit"
 					disabled={isSubmitting}
