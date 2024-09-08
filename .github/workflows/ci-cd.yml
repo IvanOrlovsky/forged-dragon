@@ -34,10 +34,10 @@ jobs:
               run: pnpm build
 
             - name: Деплой по FTP
-              uses: SamKirkland/FTP-Deploy-Action@4.5.0
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
               with:
                   server: ${{ secrets.FTP_HOST }}
                   username: ${{ secrets.FTP_USERNAME }}
                   password: ${{ secrets.FTP_PASSWORD }}
-                  local-dir: out
-                  server-dir: /public_html
+                  local-dir: ./out/
+                  server-dir: public_html/
