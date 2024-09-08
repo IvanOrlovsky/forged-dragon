@@ -7,7 +7,7 @@ on:
 
 jobs:
     build:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest # Используем стандартный runner от GitHub
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -29,7 +29,7 @@ jobs:
             - name: Обработка изображений
               run: node processImages.js
 
-              # Сборка и экспорт статического сайта
+            # Сборка и экспорт статического сайта
             - name: Сборка и экспорт статического сайта
               run: pnpm build
 
