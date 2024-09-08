@@ -29,8 +29,15 @@ jobs:
             - name: Обработка изображений
               run: node processImages.js
 
-            - name: Сборка проекта
+              # Сборка и экспорт статического сайта
+            - name: Сборка и экспорт статического сайта
               run: pnpm build
 
-            - name: Перезапуск проекта
-              run: /home/github-runner/.nvm/versions/node/v20.16.0/bin/pm2 restart nextjs-app || /home/github-runner/.nvm/versions/node/v20.16.0/bin/pm2 start npm --name "nextjs-app" -- start
+            - name: Деплой по FTP
+              uses: SamKirkland/FTP-Deploy-Action@4.5.0
+              with:
+                  server: ${{ secrets.FTP_HOST }}
+                  username: ${{ secrets.FTP_USERNAME }}
+                  password: ${{ secrets.FTP_PASSWORD }}
+                  local-dir: out
+                  server-dir: /public_html
