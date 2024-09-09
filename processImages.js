@@ -19,17 +19,18 @@ const processImage = async (imagePath, outputDir) => {
 
 	try {
 		const image = sharp(imagePath);
-		const { width } = await image.metadata();
+		const { width, height } = await image.metadata();
 
-		// Добавляем ватермарку
+		// Загружаем ватермарку и поворачиваем её на 45 градусов для диагонального размещения
 		const watermark = await sharp(watermarkPath)
-			.resize(Math.round(width / 2)) // Изменяем размер ватермарки
+			.resize(Math.min(width, height)) // Изменяем размер ватермарки в зависимости от размера изображения
+			.rotate(45) // Поворот на 45 градусов для диагонали
 			.png()
 			.toBuffer();
 
-		// Создание изображения с ватермаркой и конвертация в webp
+		// Создание изображения с ватермаркой по центру
 		await image
-			.composite([{ input: watermark, gravity: "southeast" }]) // Наложение ватермарки
+			.composite([{ input: watermark, gravity: "center" }]) // Размещение ватермарки по центру
 			.webp({ quality: 100, lossless: true }) // Конвертация в webp с минимальной потерей качества
 			.toFile(outputImagePath);
 
