@@ -5,19 +5,21 @@ const sharp = require("sharp");
 const inputDir = "public/category"; // Директория с изображениями
 const watermarkPath = "public/watermark.svg"; // Путь к ватермарке
 
-const processImage = async (imagePath) => {
+// Функция обработки изображения
+const processImage = async (imagePath, outputDir) => {
 	const extname = path.extname(imagePath);
 	const imageName = path.basename(imagePath, extname);
 
+	// Пропускаем изображения, которые уже были обработаны (начинаются с префикса 'wtm_')
 	if (imageName.startsWith("wtm_")) {
 		return; // Пропускаем уже обработанные изображения
 	}
 
-	const outputImagePath = path.join(inputDir, `wtm_${imageName}.webp`);
+	const outputImagePath = path.join(outputDir, `wtm_${imageName}.webp`);
 
 	try {
 		const image = sharp(imagePath);
-		const { width, height } = await image.metadata();
+		const { width } = await image.metadata();
 
 		// Добавляем ватермарку
 		const watermark = await sharp(watermarkPath)
@@ -25,30 +27,41 @@ const processImage = async (imagePath) => {
 			.png()
 			.toBuffer();
 
-		const resultImage = await image
+		// Создание изображения с ватермаркой и конвертация в webp
+		await image
 			.composite([{ input: watermark, gravity: "southeast" }]) // Наложение ватермарки
-			.webp({ quality: 80 }) // Конвертация в webp с сжатием
+			.webp({ quality: 100, lossless: true }) // Конвертация в webp с минимальной потерей качества
 			.toFile(outputImagePath);
 
-		console.log(`Обработано: ${outputImagePath}`);
+		// Удаление оригинала после успешной обработки
+		fs.unlinkSync(imagePath);
+
+		console.log(`Обработано и заменено: ${outputImagePath}`);
 	} catch (error) {
 		console.error(`Ошибка обработки файла ${imagePath}:`, error);
 	}
 };
 
-// Проверка директории и обработка изображений
-const processDirectory = async () => {
-	const files = fs.readdirSync(inputDir);
+// Рекурсивная функция для обработки директорий
+const processDirectory = async (dir) => {
+	const files = fs.readdirSync(dir);
 
 	for (const file of files) {
-		const fullPath = path.join(inputDir, file);
-		const extname = path.extname(file).toLowerCase();
+		const fullPath = path.join(dir, file);
 
-		// Обрабатываем только изображения
-		if ([".jpg", ".jpeg", ".png", ".webp"].includes(extname)) {
-			await processImage(fullPath);
+		// Проверяем, является ли файл директорией
+		if (fs.statSync(fullPath).isDirectory()) {
+			// Рекурсивно обрабатываем подпапки
+			await processDirectory(fullPath);
+		} else {
+			const extname = path.extname(fullPath).toLowerCase();
+			// Обрабатываем только изображения
+			if ([".jpg", ".jpeg", ".png", ".webp"].includes(extname)) {
+				await processImage(fullPath, dir);
+			}
 		}
 	}
 };
 
-processDirectory();
+// Запуск обработки
+processDirectory(inputDir);
