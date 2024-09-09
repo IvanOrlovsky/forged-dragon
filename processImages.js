@@ -45,7 +45,7 @@ const processDirectory = async () => {
 		const extname = path.extname(file).toLowerCase();
 
 		// Обрабатываем только изображения
-		if ([".jpg", ".jpeg", ".png"].includes(extname)) {
+		if ([".jpg", ".jpeg", ".png", ".webp"].includes(extname)) {
 			await processImage(fullPath);
 		}
 	}
