@@ -24,7 +24,6 @@ const processImage = async (imagePath, outputDir) => {
 		// Загружаем ватермарку и поворачиваем её на 45 градусов для диагонального размещения
 		const watermark = await sharp(watermarkPath)
 			.resize(Math.min(width, height)) // Изменяем размер ватермарки в зависимости от размера изображения
-			.rotate(-45) // Поворот на 45 градусов для диагонали
 			.png()
 			.toBuffer();
 
