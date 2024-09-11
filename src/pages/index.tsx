@@ -19,6 +19,20 @@ export const getStaticProps: GetStaticProps<ContentType> = async () => {
 		const folderPath = path.join(categoryDir, folder);
 		const images = fs
 			.readdirSync(folderPath)
+			.filter((file) => {
+				const extname = path.extname(file).toLowerCase();
+				return [
+					".jpg",
+					".jpeg",
+					".png",
+					".webp",
+					".gif",
+					".tiff",
+					".bmp",
+					".heic",
+					".svg",
+				].includes(extname);
+			})
 			.map((file) => path.join("/category", folder, file));
 		return {
 			tab: folder,
