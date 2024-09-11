@@ -30,7 +30,7 @@ const processImage = async (imagePath, outputDir) => {
 		// Создание изображения с ватермаркой по центру
 		await image
 			.composite([{ input: watermark, gravity: "center", blend: "over" }]) // Размещение ватермарки по центру
-			.webp({ quality: 100, lossless: true }) // Конвертация в webp с минимальной потерей качества
+			.webp({ quality: 85, lossless: false }) // Конвертация в webp с минимальной потерей качества
 			.toFile(outputImagePath);
 
 		// Удаление оригинала после успешной обработки
