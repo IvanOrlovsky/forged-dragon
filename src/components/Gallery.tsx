@@ -33,11 +33,9 @@ export default function Gallery({ tabs, imagesByTab }: ContentType) {
 				<div className="mt-6">
 					<ImageGallery
 						items={
-							imagesByTab
-								.find((tabItem) => tabItem.tab === activeTab)
-								?.images.map((src) => {
-									return { original: src, thumbnail: src };
-								}) || [{ original: "" }]
+							imagesByTab.find(
+								(tabItem) => tabItem.tab === activeTab
+							)?.images || []
 						}
 						showPlayButton={false}
 						lazyLoad
