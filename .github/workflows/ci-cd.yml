@@ -23,12 +23,6 @@ jobs:
             - name: Установка зависимостей
               run: pnpm install
 
-            - name: Установка библиотеки Sharp
-              run: pnpm install sharp
-
-            - name: Обработка изображений
-              run: node processImages.js
-
             # Сборка и экспорт статического сайта
             - name: Сборка и экспорт статического сайта
               run: pnpm build
