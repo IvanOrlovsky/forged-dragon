@@ -10,42 +10,19 @@ import About from "@/components/About";
 import WorkStages from "@/components/WorkStages";
 import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
+import axios from "axios";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
-	const categoryDir = path.join(process.cwd(), "public", "category");
-	const folders = fs.readdirSync(categoryDir);
+	const response = await axios.get(
+		"http://ivanorlovksy.ru/photo_api.php?action=getContentType",
+		{
+			headers: {
+				Authorization: "your_fixed_token_here",
+			},
+		}
+	);
 
-	const imagesByTab = folders.map((folder) => {
-		const folderPath = path.join(categoryDir, folder);
-		const images = fs
-			.readdirSync(folderPath)
-			.filter((file) => {
-				const extname = path.extname(file).toLowerCase();
-				return [
-					".jpg",
-					".jpeg",
-					".png",
-					".webp",
-					".gif",
-					".tiff",
-					".bmp",
-					".heic",
-					".svg",
-				].includes(extname);
-			})
-			.map((file) => path.join("/category", folder, file));
-		return {
-			tab: folder,
-			images,
-		};
-	});
-
-	return {
-		props: {
-			tabs: folders,
-			imagesByTab,
-		},
-	};
+	return { props: response.data };
 };
 
 export default function Home({
