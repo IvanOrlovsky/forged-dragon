@@ -4,6 +4,7 @@ import WhatsApp from "../../public/icons/WhatsApp.svg";
 import Phone from "../../public/icons/Phone.svg";
 import Mail from "../../public/icons/Mail.svg";
 import Location from "../../public/icons/Location.svg";
+import Instagram from "../../public/icons/Instagram.svg";
 
 export default function Footer() {
 	return (
@@ -171,6 +172,27 @@ export default function Footer() {
 									className="flex items-center space-x-2 hover:underline"
 								>
 									{process.env.NEXT_PUBLIC_WHATSAPP}
+								</a>
+							</div>
+						</li>
+						<li className="flex items-start">
+							<a
+								href={process.env.NEXT_PUBLIC_INSTAGRAM}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-600"
+							>
+								<Instagram className="w-10 h-10 text-gray-200" />
+							</a>
+							<div className="ml-4">
+								<h4 className="text-lg font-bold">Instagram</h4>
+								<a
+									href={process.env.NEXT_PUBLIC_INSTAGRAM}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center space-x-2 hover:underline"
+								>
+									kovkad40
 								</a>
 							</div>
 						</li>

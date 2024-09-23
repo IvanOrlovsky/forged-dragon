@@ -4,7 +4,6 @@ const testimonialsData = [
 	{
 		id: 1,
 		name: "Анна Иванова",
-		role: "Дизайнер",
 		content:
 			"Этот продукт изменил мою жизнь. Я рекомендую его всем своим друзьям!",
 		avatar: "https://randomuser.me/api/portraits/women/1.jpg",
@@ -12,7 +11,6 @@ const testimonialsData = [
 	{
 		id: 2,
 		name: "Алексей Смирнов",
-		role: "Разработчик",
 		content:
 			"Очень полезный и удобный продукт. Отличное качество и поддержка.",
 		avatar: "https://randomuser.me/api/portraits/men/2.jpg",
@@ -20,7 +18,6 @@ const testimonialsData = [
 	{
 		id: 3,
 		name: "Мария Кузнецова",
-		role: "Менеджер",
 		content: "Мне нравится, как продукт помогает мне в повседневной жизни.",
 		avatar: "https://randomuser.me/api/portraits/women/3.jpg",
 	},
@@ -51,9 +48,6 @@ export default function Reviews() {
 									<h3 className="text-xl font-semibold">
 										{testimonial.name}
 									</h3>
-									<p className="text-gray-600">
-										{testimonial.role}
-									</p>
 								</div>
 							</div>
 							<p className="text-gray-700">

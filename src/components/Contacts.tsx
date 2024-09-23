@@ -4,6 +4,7 @@ import WhatsApp from "../../public/icons/WhatsApp.svg";
 import Phone from "../../public/icons/Phone.svg";
 import Mail from "../../public/icons/Mail.svg";
 import Location from "../../public/icons/Location.svg";
+import Instagram from "../../public/icons/Instagram.svg";
 
 export default function Contacts() {
 	return (
@@ -100,6 +101,16 @@ export default function Contacts() {
 										className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800"
 									>
 										<WhatsApp className="w-6 h-6 text-gray-200" />
+									</a>
+								</li>
+								<li>
+									<a
+										href={process.env.NEXT_PUBLIC_INSTAGRAM}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800"
+									>
+										<Instagram className="w-10 h-10 text-gray-200" />
 									</a>
 								</li>
 							</ul>

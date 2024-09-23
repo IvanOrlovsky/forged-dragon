@@ -9,9 +9,6 @@ const ClientForm = () => {
 		message: "",
 	});
 
-	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [lastSubmitTime, setLastSubmitTime] = useState(0);
-
 	const handleChange = (
 		e:
 			| React.ChangeEvent<HTMLInputElement>
@@ -37,18 +34,34 @@ const ClientForm = () => {
 			return;
 		}
 
-		const currentTime = Date.now();
-		if (currentTime - lastSubmitTime < 60000) {
-			toast.error(
-				"Пожалуйста, подождите минуту перед повторной отправкой."
+		try {
+			const response = await fetch(
+				"https://ivanorlovksy.ru/sendmail.php",
+				{
+					// Укажите правильный путь к вашему PHP-скрипту
+					method: "POST",
+					headers: {
+						"Content-Type": "application/x-www-form-urlencoded",
+					},
+					body: new URLSearchParams({
+						name: formData.name,
+						phoneNumber: formData.phoneNumber,
+						message: formData.message,
+					}),
+				}
 			);
-			return;
+
+			const result = await response.json();
+			if (result.success) {
+				toast.success("Заявка успешно отправлена!");
+				setFormData({ name: "", phoneNumber: "", message: "" });
+			} else {
+				toast.error(result.message || "Ошибка при отправке");
+			}
+		} catch (error) {
+			console.error("Error: " + error);
+			toast.error("Произошла ошибка при отправке. Попробуйте позже.");
 		}
-
-		setIsSubmitting(true);
-		setLastSubmitTime(currentTime);
-
-		toast.success("Заявка успешно отправлена!");
 	};
 
 	return (
@@ -105,16 +118,15 @@ const ClientForm = () => {
 						value={formData.message}
 						onChange={handleChange}
 						required
-						className="p-2 border-2 border-accent "
+						className="p-2 border-2 border-accent"
 					/>
 				</div>
 
 				<button
 					type="submit"
-					disabled={isSubmitting}
-					className="px-2 py-3 bg-dark-text text-light-text  transition-opacity duration-300 disabled:opacity-50"
+					className="px-2 py-3 bg-dark-text text-light-text transition-opacity duration-300 disabled:opacity-50"
 				>
-					{isSubmitting ? "Отправка..." : "Отправить"}
+					Отправить
 				</button>
 			</form>
 		</>
