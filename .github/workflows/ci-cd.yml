@@ -5,6 +5,9 @@ on:
         branches: [main]
     workflow_dispatch:
 
+env:
+    NEXT_PUBLIC_PHOTO_API: ${{ secrets.NEXT_PUBLIC_PHOTO_API }}
+
 jobs:
     build:
         runs-on: ubuntu-latest # Используем стандартный runner от GitHub
