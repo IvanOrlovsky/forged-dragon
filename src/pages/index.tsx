@@ -1,7 +1,5 @@
 import NavBar from "@/components/NavBar";
-import path from "path";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
-import fs from "fs";
 import { ContentType } from "@/types/ContentType";
 import HeroSection from "@/components/HeroSection";
 import Gallery from "@/components/Gallery";
@@ -14,10 +12,10 @@ import axios from "axios";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const response = await axios.get(
-		"http://ivanorlovksy.ru/photo_api.php?action=getContentType",
+		"https://ivanorlovksy.ru/photo_api.php?action=getContentType",
 		{
 			headers: {
-				Authorization: "your_fixed_token_here",
+				Authorization: process.env.NEXT_PUBLIC_PHOTO_API,
 			},
 		}
 	);
