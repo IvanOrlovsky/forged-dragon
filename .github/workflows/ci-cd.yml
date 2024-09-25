@@ -27,9 +27,11 @@ jobs:
             - name: Установка зависимостей
               run: pnpm install
 
-            # Сборка и экспорт статического сайта
-            - name: Сборка и экспорт статического сайта
+            - name: Сборка сайта
               run: pnpm build
+
+            - name: Генерация sitemap и robots.txt
+              run: pnpm postbuild
 
             - name: Деплой по FTP
               uses: SamKirkland/FTP-Deploy-Action@v4.3.5
