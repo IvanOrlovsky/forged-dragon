@@ -12,7 +12,7 @@ import axios from "axios";
 
 export const getStaticProps: GetStaticProps<ContentType> = async () => {
 	const response = await axios.get(
-		"http://forgeddragon.ru.swtest.ru/photo_api.php?action=getContentType",
+		"https://forgeddragon.ru/photo_api.php?action=getContentType",
 		{
 			headers: {
 				Authorization: process.env.NEXT_PUBLIC_PHOTO_API,
