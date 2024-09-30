@@ -11,7 +11,7 @@ export default function HeroSection() {
 
 			{/* Image */}
 			<Image
-				src="/main-images/Main.jpg"
+				src="/main-images/Main2.jpg"
 				alt="Изображение кованого дракона, созданного в мастерской художественной ковки"
 				fill
 				className="absolute inset-0 object-cover object-center"

@@ -141,7 +141,7 @@ function PretopBar() {
 					href={process.env.NEXT_PUBLIC_LOCATION_HREF}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="hover:underline flex flex-row gap-1 items-center"
+					className="underline hover:text-accent flex flex-row gap-1 items-center"
 				>
 					<Location className="w-4 h-4" />
 					<span>{process.env.NEXT_PUBLIC_LOCATION_TEXT}</span>
@@ -149,7 +149,7 @@ function PretopBar() {
 				<div>
 					<a
 						href={`tel:${phoneNumber}`}
-						className="font-extrabold hover:text-accent transition-colors duration-200"
+						className="font-extrabold underline hover:text-accent transition-colors duration-200"
 					>
 						{phoneNumberText}
 					</a>
