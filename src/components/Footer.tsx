@@ -5,6 +5,7 @@ import Phone from "../../public/icons/Phone.svg";
 import Mail from "../../public/icons/Mail.svg";
 import Location from "../../public/icons/Location.svg";
 import Instagram from "../../public/icons/Instagram.svg";
+import React from "react";
 
 export default function Footer() {
 	return (

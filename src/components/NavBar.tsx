@@ -135,7 +135,7 @@ function PretopBar() {
 	const phoneNumberText = process.env.NEXT_PUBLIC_PHONE_NUMBER_TEXT;
 
 	return (
-		<div className="bg-dark-text text-gray-300 py-2 text-sm">
+		<div className="bg-dark-text text-gray-300 py-2 sm:text-sm text-xs	">
 			<div className="max-w-screen-xl mx-auto flex justify-between items-center px-4">
 				<a
 					href={process.env.NEXT_PUBLIC_LOCATION_HREF}
