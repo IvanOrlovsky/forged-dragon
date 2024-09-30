@@ -36,7 +36,7 @@ const ClientForm = () => {
 
 		try {
 			const response = await fetch(
-				"https://ivanorlovksy.ru/sendmail.php",
+				"http://forgeddragon.ru/sendmail.php",
 				{
 					// Укажите правильный путь к вашему PHP-скрипту
 					method: "POST",
