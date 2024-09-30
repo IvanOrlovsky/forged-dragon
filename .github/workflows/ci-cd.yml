@@ -7,6 +7,7 @@ on:
 
 env:
     NEXT_PUBLIC_PHOTO_API: ${{ secrets.NEXT_PUBLIC_PHOTO_API }}
+    NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
 
 jobs:
     build:
@@ -26,9 +27,8 @@ jobs:
             - name: Установка зависимостей
               run: pnpm install
 
-            # Сборка и экспорт статического сайта
-            - name: Сборка и экспорт статического сайта
-              run: pnpm build
+            - name: Сборка сайта и генерация sitemap.xml и robots.txt
+              run: pnpm build && pnpm postbuild
 
             - name: Деплой по FTP
               uses: SamKirkland/FTP-Deploy-Action@v4.3.5
