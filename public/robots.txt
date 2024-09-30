@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ivanorlovksy.ru
+Host: https://forgeddragon.ru
 
 # Sitemaps
-Sitemap: https://ivanorlovksy.ru/sitemap.xml
+Sitemap: https://forgeddragon.ru/sitemap.xml
